@@ -32,6 +32,12 @@ const imageAltText = "desktop with books and laptop";
  */
 const projectList = [
   {
+    title: "Music Library",
+    description:
+      "Pairing music and video. MERN stack.",
+    url: "https://github.com/phizbiz/rollercoaster-project",
+  },
+  {
     title: "Rollercoaster Encyclopedia",
     description:
       "MERN stack rollercoaster website",
@@ -50,10 +56,11 @@ const projectList = [
     url: "https://github.com/phizbiz/album_reviews",
   },
   {
-    title: "Music Blog",
+    title: "Gradebook Calculator",
     description:
       "Frontend website built with Vue, Vue Router, and the RAWG API",
-    url: "https://github.com/phizbiz/u4_lab_vue_RAWG",
+    url: "https://github.com/jadlevine/gradebook-frontend",
+    url: "https://github.com/jadlevine/gradebook-backend",
   },
   
 ];
@@ -64,11 +71,11 @@ const Portfolio = () => {
       <h2>Portfolio</h2>
       <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem" }}>
         <div style={{ maxWidth: "40%", alignSelf: "center" }}>
-          <img
+          {/* <img
             src={image}
             style={{ height: "90%", width: "100%", objectFit: "cover" }}
             alt={imageAltText}
-          />
+          /> */}
         </div>
         <div className="container">
           {projectList.map((project) => (
