@@ -42,8 +42,8 @@ const projectList = [
     title: "Rollercoaster Encyclopedia",
     description:
       "MERN stack rollercoaster website",
-    url: "https://github.com/phizbiz/rollercoaster-project",
-    git: "https://young-cliffs-64362.herokuapp.com/",
+    url: "https://young-cliffs-64362.herokuapp.com/",
+    git: "https://github.com/phizbiz/rollercoaster-project",
   },
   {
     title: "Connect Four",
@@ -55,8 +55,8 @@ const projectList = [
     title: "Music Blog",
     description:
       "Music review blog built with React.",
-    url: "https://github.com/phizbiz/album_reviews",
-    git: "https://phizfork.herokuapp.com/"
+    url: "https://phizfork.herokuapp.com/",
+    git: "https://github.com/phizbiz/album_reviews",
   },
   // {
   //   title: "Gradebook Calculator",
