@@ -34,7 +34,7 @@ const projectList = [
   {
     title: "Music Library",
     description:
-      "Pairing music and video. MERN stack.",
+      "Pairing music and video. MERN stack",
     url: "https://royal-music-library.herokuapp.com/",
     git: "https://github.com/phizbiz/Capstone-Project",
   },
@@ -54,7 +54,7 @@ const projectList = [
   {
     title: "Music Blog",
     description:
-      "Music review blog built with React.",
+      "Music review blog built with React",
     url: "https://phizfork.herokuapp.com/",
     git: "https://github.com/phizbiz/album_reviews",
   },
