@@ -50,7 +50,7 @@ const skillsList = [
  * about you on a professional level.
  */
 const detailOrQuote =
-  "Touring musician turned software engineer";
+  "TLDR: Touring musician turned software engineer";
 
 const About = () => {
   return (

@@ -41,6 +41,7 @@ const Footer = (props) => {
   } = props;
 
   return (
+    
     <div
       id="contact"
       style={{
@@ -51,7 +52,8 @@ const Footer = (props) => {
         padding: "5rem 0 3rem",
         backgroundColor: primaryColor,
       }}
-    >
+    ><div style={{ marginTop: 0, color: "white" }}><h2 >Contact:</h2>
+    <p>philipbasnight@gmail.com</p></div>
       <div
         style={{
           display: "flex",

@@ -123,3 +123,13 @@ img.socialIcon {
   width: 30px;
   height: 30px;
 }
+
+
+.portfolio-box{
+  font-size: 16px;
+  padding: 5px;
+}
+
+.homeSocials{
+  padding: 0px 3px 0px 3px;
+}
