@@ -28786,43 +28786,23 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-/**
- * Portfolio component
- *
- * Highlights some of  your creations. These can be designs, websites,
- * open source contributions, articles you've written and more.
- *
- * This is a great area for you to to continually add to and refine
- * as you continue to learn and create.
- */ var _react = require("react");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */ var _deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813Jpg = require("../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg");
+var _deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813Jpg = require("../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg");
 var _deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813JpgDefault = parcelHelpers.interopDefault(_deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813Jpg);
 const imageAltText = "desktop with books and laptop";
-/**
- * Project list
- *
- * An array of objects that will be used to display for your project
- * links section. Below is a sample, update to reflect links you'd like to highlight.
- */ const projectList = [
+const projectList = [
     {
         title: "Music Library",
-        description: "Pairing music and video. MERN stack.",
+        description: "Pairing music and video. MERN stack",
         url: "https://royal-music-library.herokuapp.com/",
         git: "https://github.com/phizbiz/Capstone-Project"
     },
     {
         title: "Rollercoaster Encyclopedia",
         description: "MERN stack rollercoaster website",
-        url: "https://github.com/phizbiz/rollercoaster-project"
+        url: "https://young-cliffs-64362.herokuapp.com/",
+        git: "https://github.com/phizbiz/rollercoaster-project"
     },
     {
         title: "Connect Four",
@@ -28831,8 +28811,9 @@ const imageAltText = "desktop with books and laptop";
     },
     {
         title: "Music Blog",
-        description: "Music review blog built with React.",
-        url: "https://github.com/phizbiz/album_reviews"
+        description: "Music review blog built with React",
+        url: "https://phizfork.herokuapp.com/",
+        git: "https://github.com/phizbiz/album_reviews"
     }, 
 ];
 const Portfolio = ()=>{
@@ -28844,7 +28825,7 @@ const Portfolio = ()=>{
                 children: "Portfolio"
             }, void 0, false, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 72,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28861,7 +28842,7 @@ const Portfolio = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 74,
+                        lineNumber: 52,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28876,7 +28857,7 @@ const Portfolio = ()=>{
                                         children: project.title
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 84,
+                                        lineNumber: 62,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28890,7 +28871,7 @@ const Portfolio = ()=>{
                                                         children: "View Site"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/Portfolio.jsx",
-                                                        lineNumber: 87,
+                                                        lineNumber: 65,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     "||",
@@ -28900,13 +28881,13 @@ const Portfolio = ()=>{
                                                         children: "View Github"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/Portfolio.jsx",
-                                                        lineNumber: 89,
+                                                        lineNumber: 67,
                                                         columnNumber: 15
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 86,
+                                                lineNumber: 64,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28914,36 +28895,36 @@ const Portfolio = ()=>{
                                                 children: project.description
                                             }, void 0, false, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 91,
+                                                lineNumber: 69,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 85,
+                                        lineNumber: 63,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, project.title, true, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 83,
+                                lineNumber: 61,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 81,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 73,
+                lineNumber: 51,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Portfolio.jsx",
-        lineNumber: 71,
+        lineNumber: 49,
         columnNumber: 5
     }, undefined);
 };
