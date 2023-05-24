@@ -17,7 +17,7 @@ const projectList = [
   {
     title: "Chord Progression Generator",
     description:
-      "React App for dynamic generation, playback, and export of MIDI chords.",
+      "React App for dynamic generation, playback, and export of MIDI chords",
     url: "https://dailychords.herokuapp.com/",
     git: "https://github.com/phizbiz/new-chord-generator",
   },
