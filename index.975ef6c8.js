@@ -28799,6 +28799,12 @@ const projectList = [
         git: "https://github.com/phizbiz/Capstone-Project"
     },
     {
+        title: "Chord Progression Generator",
+        description: "React App for dynamic generation, playback, and export of MIDI chords",
+        url: "https://dailychords.herokuapp.com/",
+        git: "https://github.com/phizbiz/new-chord-generator"
+    },
+    {
         title: "Rollercoaster Encyclopedia",
         description: "MERN stack rollercoaster website",
         url: "https://young-cliffs-64362.herokuapp.com/",
@@ -28814,6 +28820,12 @@ const projectList = [
         description: "Music review blog built with React",
         url: "https://phizfork.herokuapp.com/",
         git: "https://github.com/phizbiz/album_reviews"
+    },
+    {
+        title: "Gradebook Calculator",
+        description: "Frontend website built with Vue, Vue Router, and the RAWG API",
+        url: "https://github.com/jadlevine/gradebook-frontend",
+        git: "https://github.com/jadlevine/gradebook-backend"
     }, 
 ];
 const Portfolio = ()=>{
@@ -28825,7 +28837,7 @@ const Portfolio = ()=>{
                 children: "Portfolio"
             }, void 0, false, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 50,
+                lineNumber: 57,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28842,7 +28854,7 @@ const Portfolio = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 52,
+                        lineNumber: 59,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28857,7 +28869,7 @@ const Portfolio = ()=>{
                                         children: project.title
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 62,
+                                        lineNumber: 69,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28871,7 +28883,7 @@ const Portfolio = ()=>{
                                                         children: "View Site"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/Portfolio.jsx",
-                                                        lineNumber: 65,
+                                                        lineNumber: 72,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     "||",
@@ -28881,13 +28893,13 @@ const Portfolio = ()=>{
                                                         children: "View Github"
                                                     }, void 0, false, {
                                                         fileName: "src/Components/Portfolio.jsx",
-                                                        lineNumber: 67,
+                                                        lineNumber: 74,
                                                         columnNumber: 15
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 64,
+                                                lineNumber: 71,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28895,36 +28907,36 @@ const Portfolio = ()=>{
                                                 children: project.description
                                             }, void 0, false, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 69,
+                                                lineNumber: 76,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 63,
+                                        lineNumber: 70,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, project.title, true, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 61,
+                                lineNumber: 68,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 59,
+                        lineNumber: 66,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 51,
+                lineNumber: 58,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Portfolio.jsx",
-        lineNumber: 49,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined);
 };
