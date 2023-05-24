@@ -15,6 +15,13 @@ const projectList = [
     git: "https://github.com/phizbiz/Capstone-Project",
   },
   {
+    title: "Chord Progression Generator",
+    description:
+      "React App for dynamic generation, playback, and export of MIDI chords.",
+    url: "https://dailychords.herokuapp.com/",
+    git: "https://github.com/phizbiz/new-chord-generator",
+  },
+  {
     title: "Rollercoaster Encyclopedia",
     description:
       "MERN stack rollercoaster website",
@@ -34,13 +41,13 @@ const projectList = [
     url: "https://phizfork.herokuapp.com/",
     git: "https://github.com/phizbiz/album_reviews",
   },
-  // {
-  //   title: "Gradebook Calculator",
-  //   description:
-  //     "Frontend website built with Vue, Vue Router, and the RAWG API",
-  //   url: "https://github.com/jadlevine/gradebook-frontend",
-  //   git: "https://github.com/jadlevine/gradebook-backend",
-  // },
+  {
+    title: "Gradebook Calculator",
+    description:
+      "Frontend website built with Vue, Vue Router, and the RAWG API",
+    url: "https://github.com/jadlevine/gradebook-frontend",
+    git: "https://github.com/jadlevine/gradebook-backend",
+  },
   
 ];
 
