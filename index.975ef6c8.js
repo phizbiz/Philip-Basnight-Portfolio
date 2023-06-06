@@ -28637,7 +28637,7 @@ const Home = ({ name , title  }, props)=>{
                 alt: ""
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 22,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28651,7 +28651,7 @@ const Home = ({ name , title  }, props)=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 24,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -28659,7 +28659,7 @@ const Home = ({ name , title  }, props)=>{
                             title,
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 26,
+                                lineNumber: 27,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28675,12 +28675,12 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 29,
+                                            lineNumber: 30,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 28,
+                                        lineNumber: 29,
                                         columnNumber: 9
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -28694,12 +28694,12 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 37,
+                                            lineNumber: 38,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 31,
+                                        lineNumber: 32,
                                         columnNumber: 11
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -28711,41 +28711,41 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 40,
+                                            lineNumber: 41,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 40,
                                         columnNumber: 11
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 27,
+                                lineNumber: 28,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 23,
+                lineNumber: 24,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 46,
+                lineNumber: 47,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Home.jsx",
-        lineNumber: 21,
+        lineNumber: 22,
         columnNumber: 5
     }, undefined);
 };
