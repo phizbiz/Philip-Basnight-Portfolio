@@ -8,6 +8,7 @@ import gitHubIcon from "../images/socials/github.svg";
 
 import image from "../images/PhilipBasnightCrop.png";
 
+
 const imageAltText = "Philip Basnight";
 
 const Home = ({ name, title }, props) => {
