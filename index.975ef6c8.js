@@ -27521,8 +27521,7 @@ var _instagramSvg = require("../images/socials/instagram.svg");
 var _instagramSvgDefault = parcelHelpers.interopDefault(_instagramSvg);
 var _linkedinSvg = require("../images/socials/linkedin.svg");
 var _linkedinSvgDefault = parcelHelpers.interopDefault(_linkedinSvg);
-var _mediumSvg = require("../images/socials/medium.svg");
-var _mediumSvgDefault = parcelHelpers.interopDefault(_mediumSvg);
+// import mediumIcon from "../images/socials/medium.svg";
 var _twitterSvg = require("../images/socials/twitter.svg");
 var _twitterSvgDefault = parcelHelpers.interopDefault(_twitterSvg);
 var _youtubeSvg = require("../images/socials/youtube.svg");
@@ -27755,7 +27754,7 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/devdotto.svg":"69cpV","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/socials/instagram.svg":"jH0VA","../images/socials/linkedin.svg":"5XSmz","../images/socials/medium.svg":"cDDa0","../images/socials/twitter.svg":"flM6L","../images/socials/youtube.svg":"hmN7D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/devdotto.svg":"69cpV","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/socials/instagram.svg":"jH0VA","../images/socials/linkedin.svg":"5XSmz","../images/socials/twitter.svg":"flM6L","../images/socials/youtube.svg":"hmN7D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
 var ReactIs = require("react-is");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
@@ -28511,9 +28510,6 @@ module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "instag
 },{"./helpers/bundle-url":"lgJ39"}],"5XSmz":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "linkedin.49c2dcdf.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"cDDa0":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "medium.6232db8b.svg" + "?" + Date.now();
-
 },{"./helpers/bundle-url":"lgJ39"}],"flM6L":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "twitter.7541cc84.svg" + "?" + Date.now();
 
@@ -28637,7 +28633,7 @@ const Home = ({ name , title  }, props)=>{
                 alt: ""
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 23,
+                lineNumber: 22,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28651,7 +28647,7 @@ const Home = ({ name , title  }, props)=>{
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 25,
+                        lineNumber: 24,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -28659,7 +28655,7 @@ const Home = ({ name , title  }, props)=>{
                             title,
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 27,
+                                lineNumber: 26,
                                 columnNumber: 9
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28675,12 +28671,12 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 30,
+                                            lineNumber: 29,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 29,
+                                        lineNumber: 28,
                                         columnNumber: 9
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -28694,12 +28690,12 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 38,
+                                            lineNumber: 37,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 32,
+                                        lineNumber: 31,
                                         columnNumber: 11
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -28711,41 +28707,41 @@ const Home = ({ name , title  }, props)=>{
                                             className: "socialIcon"
                                         }, void 0, false, {
                                             fileName: "src/Components/Home.jsx",
-                                            lineNumber: 41,
+                                            lineNumber: 40,
                                             columnNumber: 13
                                         }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/Components/Home.jsx",
-                                        lineNumber: 40,
+                                        lineNumber: 39,
                                         columnNumber: 11
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 28,
+                                lineNumber: 27,
                                 columnNumber: 9
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 26,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 24,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 47,
+                lineNumber: 46,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Home.jsx",
-        lineNumber: 22,
+        lineNumber: 21,
         columnNumber: 5
     }, undefined);
 };
@@ -28788,8 +28784,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813Jpg = require("../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg");
-var _deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813JpgDefault = parcelHelpers.interopDefault(_deskWithVariousGadgetsAndOfficeSuppliesComputerSmartPhoneAndStationeryArouSBI305198813Jpg);
+// import image from "../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg"
 const imageAltText = "desktop with books and laptop";
 const projectList = [
     {
@@ -28950,9 +28945,6 @@ $RefreshReg$(_c, "Portfolio");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg":"i3wD2"}],"i3wD2":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.13241cbe.jpg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire6158")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lW6qc":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire6158")
 
 //# sourceMappingURL=index.975ef6c8.js.map
