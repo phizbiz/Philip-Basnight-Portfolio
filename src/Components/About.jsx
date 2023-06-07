@@ -18,6 +18,7 @@ import React from "react";
  */
 // import image from "../images/mosaic.svg";
 import image from "../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg";
+// import image from "../../dist/abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg";
 
 const imageAltText = "purple and blue abstract background";
 
