@@ -142,9 +142,440 @@
       this[globalName] = mainExports;
     }
   }
-})({"1xC6H":[function(require,module,exports) {
-var Refresh = require("react-refresh/runtime");
-var ErrorOverlay = require("react-error-overlay");
+})({"igKGj":[function(require,module,exports) {
+var global = arguments[3];
+var HMR_HOST = null;
+var HMR_PORT = null;
+var HMR_SECURE = false;
+var HMR_ENV_HASH = "d6ea1d42532a7575";
+module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+"use strict";
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
+import type {
+  HMRAsset,
+  HMRMessage,
+} from '@parcel/reporter-dev-server/src/HMRServer.js';
+interface ParcelRequire {
+  (string): mixed;
+  cache: {|[string]: ParcelModule|};
+  hotData: {|[string]: mixed|};
+  Module: any;
+  parent: ?ParcelRequire;
+  isParcelRequire: true;
+  modules: {|[string]: [Function, {|[string]: string|}]|};
+  HMR_BUNDLE_ID: string;
+  root: ParcelRequire;
+}
+interface ParcelModule {
+  hot: {|
+    data: mixed,
+    accept(cb: (Function) => void): void,
+    dispose(cb: (mixed) => void): void,
+    // accept(deps: Array<string> | string, cb: (Function) => void): void,
+    // decline(): void,
+    _acceptCallbacks: Array<(Function) => void>,
+    _disposeCallbacks: Array<(mixed) => void>,
+  |};
+}
+interface ExtensionContext {
+  runtime: {|
+    reload(): void,
+    getURL(url: string): string;
+    getManifest(): {manifest_version: number, ...};
+  |};
+}
+declare var module: {bundle: ParcelRequire, ...};
+declare var HMR_HOST: string;
+declare var HMR_PORT: string;
+declare var HMR_ENV_HASH: string;
+declare var HMR_SECURE: boolean;
+declare var chrome: ExtensionContext;
+declare var browser: ExtensionContext;
+declare var __parcel__import__: (string) => Promise<void>;
+declare var __parcel__importScripts__: (string) => Promise<void>;
+declare var globalThis: typeof self;
+declare var ServiceWorkerGlobalScope: Object;
+*/ var OVERLAY_ID = "__parcel__error__overlay__";
+var OldModule = module.bundle.Module;
+function Module(moduleName) {
+    OldModule.call(this, moduleName);
+    this.hot = {
+        data: module.bundle.hotData[moduleName],
+        _acceptCallbacks: [],
+        _disposeCallbacks: [],
+        accept: function(fn) {
+            this._acceptCallbacks.push(fn || function() {});
+        },
+        dispose: function(fn) {
+            this._disposeCallbacks.push(fn);
+        }
+    };
+    module.bundle.hotData[moduleName] = undefined;
+}
+module.bundle.Module = Module;
+module.bundle.hotData = {};
+var checkedAssets /*: {|[string]: boolean|} */ , assetsToDispose /*: Array<[ParcelRequire, string]> */ , assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
+function getHostname() {
+    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
+}
+function getPort() {
+    return HMR_PORT || location.port;
+}
+// eslint-disable-next-line no-redeclare
+var parent = module.bundle.parent;
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
+    var hostname = getHostname();
+    var port = getPort();
+    var protocol = HMR_SECURE || location.protocol == "https:" && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? "wss" : "ws";
+    var ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/");
+    // Web extension context
+    var extCtx = typeof chrome === "undefined" ? typeof browser === "undefined" ? null : browser : chrome;
+    // Safari doesn't support sourceURL in error stacks.
+    // eval may also be disabled via CSP, so do a quick check.
+    var supportsSourceURL = false;
+    try {
+        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
+    } catch (err) {
+        supportsSourceURL = err.stack.includes("test.js");
+    }
+    // $FlowFixMe
+    ws.onmessage = async function(event /*: {data: string, ...} */ ) {
+        checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        assetsToAccept = [];
+        assetsToDispose = [];
+        var data /*: HMRMessage */  = JSON.parse(event.data);
+        if (data.type === "update") {
+            // Remove error overlay if there is one
+            if (typeof document !== "undefined") removeErrorOverlay();
+            let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH);
+            // Handle HMR Update
+            let handled = assets.every((asset)=>{
+                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            });
+            if (handled) {
+                console.clear();
+                // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
+                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                await hmrApplyUpdates(assets);
+                // Dispose all old assets.
+                let processedAssets = {} /*: {|[string]: boolean|} */ ;
+                for(let i = 0; i < assetsToDispose.length; i++){
+                    let id = assetsToDispose[i][1];
+                    if (!processedAssets[id]) {
+                        hmrDispose(assetsToDispose[i][0], id);
+                        processedAssets[id] = true;
+                    }
+                }
+                // Run accept callbacks. This will also re-execute other disposed assets in topological order.
+                processedAssets = {};
+                for(let i = 0; i < assetsToAccept.length; i++){
+                    let id = assetsToAccept[i][1];
+                    if (!processedAssets[id]) {
+                        hmrAccept(assetsToAccept[i][0], id);
+                        processedAssets[id] = true;
+                    }
+                }
+            } else fullReload();
+        }
+        if (data.type === "error") {
+            // Log parcel errors to console
+            for (let ansiDiagnostic of data.diagnostics.ansi){
+                let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
+            }
+            if (typeof document !== "undefined") {
+                // Render the fancy html overlay
+                removeErrorOverlay();
+                var overlay = createErrorOverlay(data.diagnostics.html);
+                // $FlowFixMe
+                document.body.appendChild(overlay);
+            }
+        }
+    };
+    ws.onerror = function(e) {
+        console.error(e.message);
+    };
+    ws.onclose = function() {
+        console.warn("[parcel] \uD83D\uDEA8 Connection to the HMR server was lost");
+    };
+}
+function removeErrorOverlay() {
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) {
+        overlay.remove();
+        console.log("[parcel] ✨ Error resolved");
+    }
+}
+function createErrorOverlay(diagnostics) {
+    var overlay = document.createElement("div");
+    overlay.id = OVERLAY_ID;
+    let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    for (let diagnostic of diagnostics){
+        let stack = diagnostic.frames.length ? diagnostic.frames.reduce((p, frame)=>{
+            return `${p}
+<a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
+${frame.code}`;
+        }, "") : diagnostic.stack;
+        errorHTML += `
+      <div>
+        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
+          🚨 ${diagnostic.message}
+        </div>
+        <pre>${stack}</pre>
+        <div>
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+        </div>
+        ${diagnostic.documentation ? `<div>📝 <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+      </div>
+    `;
+    }
+    errorHTML += "</div>";
+    overlay.innerHTML = errorHTML;
+    return overlay;
+}
+function fullReload() {
+    if ("reload" in location) location.reload();
+    else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
+}
+function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
+    var modules = bundle.modules;
+    if (!modules) return [];
+    var parents = [];
+    var k, d, dep;
+    for(k in modules)for(d in modules[k][1]){
+        dep = modules[k][1][d];
+        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
+            bundle,
+            k
+        ]);
+    }
+    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
+    return parents;
+}
+function updateLink(link) {
+    var href = link.getAttribute("href");
+    if (!href) return;
+    var newLink = link.cloneNode();
+    newLink.onload = function() {
+        if (link.parentNode !== null) // $FlowFixMe
+        link.parentNode.removeChild(link);
+    };
+    newLink.setAttribute("href", // $FlowFixMe
+    href.split("?")[0] + "?" + Date.now());
+    // $FlowFixMe
+    link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+    if (cssTimeout) return;
+    cssTimeout = setTimeout(function() {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for(var i = 0; i < links.length; i++){
+            // $FlowFixMe[incompatible-type]
+            var href /*: string */  = links[i].getAttribute("href");
+            var hostname = getHostname();
+            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
+            if (!absolute) updateLink(links[i]);
+        }
+        cssTimeout = null;
+    }, 50);
+}
+function hmrDownload(asset) {
+    if (asset.type === "js") {
+        if (typeof document !== "undefined") {
+            let script = document.createElement("script");
+            script.src = asset.url + "?t=" + Date.now();
+            if (asset.outputFormat === "esmodule") script.type = "module";
+            return new Promise((resolve, reject)=>{
+                var _document$head;
+                script.onload = ()=>resolve(script);
+                script.onerror = reject;
+                (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
+            });
+        } else if (typeof importScripts === "function") {
+            // Worker scripts
+            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            else return new Promise((resolve, reject)=>{
+                try {
+                    importScripts(asset.url + "?t=" + Date.now());
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+    }
+}
+async function hmrApplyUpdates(assets) {
+    global.parcelHotUpdate = Object.create(null);
+    let scriptsToRemove;
+    try {
+        // If sourceURL comments aren't supported in eval, we need to load
+        // the update from the dev server over HTTP so that stack traces
+        // are correct in errors/logs. This is much slower than eval, so
+        // we only do it if needed (currently just Safari).
+        // https://bugs.webkit.org/show_bug.cgi?id=137297
+        // This path is also taken if a CSP disallows eval.
+        if (!supportsSourceURL) {
+            let promises = assets.map((asset)=>{
+                var _hmrDownload;
+                return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
+                    // Web extension bugfix for Chromium
+                    // https://bugs.chromium.org/p/chromium/issues/detail?id=1255412#c12
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3) {
+                        if (typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                            extCtx.runtime.reload();
+                            return;
+                        }
+                        asset.url = extCtx.runtime.getURL("/__parcel_hmr_proxy__?url=" + encodeURIComponent(asset.url + "?t=" + Date.now()));
+                        return hmrDownload(asset);
+                    }
+                    throw err;
+                });
+            });
+            scriptsToRemove = await Promise.all(promises);
+        }
+        assets.forEach(function(asset) {
+            hmrApply(module.bundle.root, asset);
+        });
+    } finally{
+        delete global.parcelHotUpdate;
+        if (scriptsToRemove) scriptsToRemove.forEach((script)=>{
+            if (script) {
+                var _document$head2;
+                (_document$head2 = document.head) === null || _document$head2 === void 0 || _document$head2.removeChild(script);
+            }
+        });
+    }
+}
+function hmrApply(bundle /*: ParcelRequire */ , asset /*:  HMRAsset */ ) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (asset.type === "css") reloadCSS();
+    else if (asset.type === "js") {
+        let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+        if (deps) {
+            if (modules[asset.id]) {
+                // Remove dependencies that are removed and will become orphaned.
+                // This is necessary so that if the asset is added back again, the cache is gone, and we prevent a full page reload.
+                let oldDeps = modules[asset.id][1];
+                for(let dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
+                    let id = oldDeps[dep];
+                    let parents = getParents(module.bundle.root, id);
+                    if (parents.length === 1) hmrDelete(module.bundle.root, id);
+                }
+            }
+            if (supportsSourceURL) // Global eval. We would use `new Function` here but browser
+            // support for source maps is better with eval.
+            (0, eval)(asset.output);
+            // $FlowFixMe
+            let fn = global.parcelHotUpdate[asset.id];
+            modules[asset.id] = [
+                fn,
+                deps
+            ];
+        } else if (bundle.parent) hmrApply(bundle.parent, asset);
+    }
+}
+function hmrDelete(bundle, id) {
+    let modules = bundle.modules;
+    if (!modules) return;
+    if (modules[id]) {
+        // Collect dependencies that will become orphaned when this module is deleted.
+        let deps = modules[id][1];
+        let orphans = [];
+        for(let dep in deps){
+            let parents = getParents(module.bundle.root, deps[dep]);
+            if (parents.length === 1) orphans.push(deps[dep]);
+        }
+        // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
+        delete modules[id];
+        delete bundle.cache[id];
+        // Now delete the orphans.
+        orphans.forEach((id)=>{
+            hmrDelete(module.bundle.root, id);
+        });
+    } else if (bundle.parent) hmrDelete(bundle.parent, id);
+}
+function hmrAcceptCheck(bundle /*: ParcelRequire */ , id /*: string */ , depsByBundle /*: ?{ [string]: { [string]: string } }*/ ) {
+    if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
+    // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
+    let parents = getParents(module.bundle.root, id);
+    let accepted = false;
+    while(parents.length > 0){
+        let v = parents.shift();
+        let a = hmrAcceptCheckOne(v[0], v[1], null);
+        if (a) // If this parent accepts, stop traversing upward, but still consider siblings.
+        accepted = true;
+        else {
+            // Otherwise, queue the parents in the next level upward.
+            let p = getParents(module.bundle.root, v[1]);
+            if (p.length === 0) {
+                // If there are no parents, then we've reached an entry without accepting. Reload.
+                accepted = false;
+                break;
+            }
+            parents.push(...p);
+        }
+    }
+    return accepted;
+}
+function hmrAcceptCheckOne(bundle /*: ParcelRequire */ , id /*: string */ , depsByBundle /*: ?{ [string]: { [string]: string } }*/ ) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
+        // If we reached the root bundle without finding where the asset should go,
+        // there's nothing to do. Mark as "accepted" so we don't reload the page.
+        if (!bundle.parent) return true;
+        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
+    }
+    if (checkedAssets[id]) return true;
+    checkedAssets[id] = true;
+    var cached = bundle.cache[id];
+    assetsToDispose.push([
+        bundle,
+        id
+    ]);
+    if (!cached || cached.hot && cached.hot._acceptCallbacks.length) {
+        assetsToAccept.push([
+            bundle,
+            id
+        ]);
+        return true;
+    }
+}
+function hmrDispose(bundle /*: ParcelRequire */ , id /*: string */ ) {
+    var cached = bundle.cache[id];
+    bundle.hotData[id] = {};
+    if (cached && cached.hot) cached.hot.data = bundle.hotData[id];
+    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
+        cb(bundle.hotData[id]);
+    });
+    delete bundle.cache[id];
+}
+function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
+    // Execute the module.
+    bundle(id);
+    // Run the accept callbacks in the new version of the module.
+    var cached = bundle.cache[id];
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
+        var assetsToAlsoAccept = cb(function() {
+            return getParents(module.bundle.root, id);
+        });
+        if (assetsToAlsoAccept && assetsToAccept.length) {
+            assetsToAlsoAccept.forEach(function(a) {
+                hmrDispose(a[0], a[1]);
+            });
+            // $FlowFixMe[method-unbinding]
+            assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+        }
+    });
+}
+
+},{}],"1xC6H":[function(require,module,exports) {
+var Refresh = require("6d18d6bd340e7473");
+var ErrorOverlay = require("74ad5ea14201648c");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -163,11 +594,11 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"react-refresh/runtime":"786KC","react-error-overlay":"1dldy"}],"786KC":[function(require,module,exports) {
+},{"6d18d6bd340e7473":"786KC","74ad5ea14201648c":"1dldy"}],"786KC":[function(require,module,exports) {
 "use strict";
-module.exports = require("./cjs/react-refresh-runtime.development.js");
+module.exports = require("96622d495519d4e");
 
-},{"./cjs/react-refresh-runtime.development.js":"hdge7"}],"hdge7":[function(require,module,exports) {
+},{"96622d495519d4e":"hdge7"}],"hdge7":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -628,7 +1059,7 @@ module.exports = require("./cjs/react-refresh-runtime.development.js");
 })();
 
 },{}],"1dldy":[function(require,module,exports) {
-var process = require("process");
+var process = require("d1546958eb39fdcf");
 !function(e, t) {
     module.exports = t();
 }(window, function() {
@@ -1043,7 +1474,7 @@ var process = require("process");
                 }
                 try {
                     u({}, "");
-                } catch (e1) {
+                } catch (e) {
                     u = function(e, t, r) {
                         return e[t] = r;
                     };
@@ -1092,10 +1523,10 @@ var process = require("process");
                             type: "normal",
                             arg: e.call(t, r)
                         };
-                    } catch (e1) {
+                    } catch (e) {
                         return {
                             type: "throw",
-                            arg: e1
+                            arg: e
                         };
                     }
                 }
@@ -1314,7 +1745,7 @@ var process = require("process");
             }(e.exports);
             try {
                 regeneratorRuntime = n;
-            } catch (e1) {
+            } catch (e) {
                 Function("r", "regeneratorRuntime = r")(n);
             }
         },
@@ -1835,9 +2266,9 @@ var process = require("process");
                         try {
                             var e = arguments[0];
                             "string" == typeof e && d.length > 0 && t(e, d[d.length - 1]);
-                        } catch (e1) {
+                        } catch (e) {
                             setTimeout(function() {
-                                throw e1;
+                                throw e;
                             });
                         }
                         return r.apply(this, arguments);
@@ -1968,8 +2399,8 @@ var process = require("process");
             function N(e, t, r, n, o, a, i) {
                 try {
                     var l = e[a](i), u = l.value;
-                } catch (e1) {
-                    return void r(e1);
+                } catch (e) {
+                    return void r(e);
                 }
                 l.done ? t(u) : Promise.resolve(u).then(n, o);
             }
@@ -2233,7 +2664,7 @@ var process = require("process");
                     var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : f;
                     if (!c) try {
                         s = Error.stackTraceLimit, Error.stackTraceLimit = e, c = !0;
-                    } catch (e1) {}
+                    } catch (e) {}
                 }(), p(), g("error", function(e, n) {
                     var o = function(e, t) {
                         for(var r, n, o = function(e) {
@@ -2358,7 +2789,7 @@ var process = require("process");
     ]);
 });
 
-},{"process":"d5jf4"}],"d5jf4":[function(require,module,exports) {
+},{"d1546958eb39fdcf":"d5jf4"}],"d5jf4":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {};
 // cached from whatever global is present so that test runners that stub it
@@ -2383,7 +2814,7 @@ function defaultClearTimeout() {
     try {
         if (typeof clearTimeout === "function") cachedClearTimeout = clearTimeout;
         else cachedClearTimeout = defaultClearTimeout;
-    } catch (e1) {
+    } catch (e) {
         cachedClearTimeout = defaultClearTimeout;
     }
 })();
@@ -2402,7 +2833,7 @@ function runTimeout(fun) {
         try {
             // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
             return cachedSetTimeout.call(null, fun, 0);
-        } catch (e1) {
+        } catch (e) {
             // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
             return cachedSetTimeout.call(this, fun, 0);
         }
@@ -2423,7 +2854,7 @@ function runClearTimeout(marker) {
         try {
             // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
             return cachedClearTimeout.call(null, marker);
-        } catch (e1) {
+        } catch (e) {
             // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
             // Some versions of I.E. have different rules for clearTimeout vs setTimeout
             return cachedClearTimeout.call(this, marker);
@@ -2503,395 +2934,6 @@ process.umask = function() {
     return 0;
 };
 
-},{}],"ShInH":[function(require,module,exports) {
-"use strict";
-var global = arguments[3];
-var HMR_HOST = null;
-var HMR_PORT = null;
-var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
-/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
-import type {
-  HMRAsset,
-  HMRMessage,
-} from '@parcel/reporter-dev-server/src/HMRServer.js';
-interface ParcelRequire {
-  (string): mixed;
-  cache: {|[string]: ParcelModule|};
-  hotData: mixed;
-  Module: any;
-  parent: ?ParcelRequire;
-  isParcelRequire: true;
-  modules: {|[string]: [Function, {|[string]: string|}]|};
-  HMR_BUNDLE_ID: string;
-  root: ParcelRequire;
-}
-interface ParcelModule {
-  hot: {|
-    data: mixed,
-    accept(cb: (Function) => void): void,
-    dispose(cb: (mixed) => void): void,
-    // accept(deps: Array<string> | string, cb: (Function) => void): void,
-    // decline(): void,
-    _acceptCallbacks: Array<(Function) => void>,
-    _disposeCallbacks: Array<(mixed) => void>,
-  |};
-}
-interface ExtensionContext {
-  runtime: {|
-    reload(): void,
-    getURL(url: string): string;
-    getManifest(): {manifest_version: number, ...};
-  |};
-}
-declare var module: {bundle: ParcelRequire, ...};
-declare var HMR_HOST: string;
-declare var HMR_PORT: string;
-declare var HMR_ENV_HASH: string;
-declare var HMR_SECURE: boolean;
-declare var chrome: ExtensionContext;
-declare var browser: ExtensionContext;
-declare var __parcel__import__: (string) => Promise<void>;
-declare var __parcel__importScripts__: (string) => Promise<void>;
-declare var globalThis: typeof self;
-declare var ServiceWorkerGlobalScope: Object;
-*/ var OVERLAY_ID = "__parcel__error__overlay__";
-var OldModule = module.bundle.Module;
-function Module(moduleName) {
-    OldModule.call(this, moduleName);
-    this.hot = {
-        data: module.bundle.hotData,
-        _acceptCallbacks: [],
-        _disposeCallbacks: [],
-        accept: function(fn) {
-            this._acceptCallbacks.push(fn || function() {});
-        },
-        dispose: function(fn) {
-            this._disposeCallbacks.push(fn);
-        }
-    };
-    module.bundle.hotData = undefined;
-}
-module.bundle.Module = Module;
-var checkedAssets, acceptedAssets, assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
-function getHostname() {
-    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
-}
-function getPort() {
-    return HMR_PORT || location.port;
-} // eslint-disable-next-line no-redeclare
-var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
-    var hostname = getHostname();
-    var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == "https:" && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? "wss" : "ws";
-    var ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/"); // Web extension context
-    var extCtx = typeof chrome === "undefined" ? typeof browser === "undefined" ? null : browser : chrome; // Safari doesn't support sourceURL in error stacks.
-    // eval may also be disabled via CSP, so do a quick check.
-    var supportsSourceURL = false;
-    try {
-        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
-    } catch (err) {
-        supportsSourceURL = err.stack.includes("test.js");
-    } // $FlowFixMe
-    ws.onmessage = async function(event) {
-        checkedAssets = {} /*: {|[string]: boolean|} */ ;
-        acceptedAssets = {} /*: {|[string]: boolean|} */ ;
-        assetsToAccept = [];
-        var data = JSON.parse(event.data);
-        if (data.type === "update") {
-            // Remove error overlay if there is one
-            if (typeof document !== "undefined") removeErrorOverlay();
-            let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH); // Handle HMR Update
-            let handled = assets.every((asset)=>{
-                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
-            });
-            if (handled) {
-                console.clear(); // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
-                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
-                await hmrApplyUpdates(assets);
-                for(var i = 0; i < assetsToAccept.length; i++){
-                    var id = assetsToAccept[i][1];
-                    if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
-                }
-            } else fullReload();
-        }
-        if (data.type === "error") {
-            // Log parcel errors to console
-            for (let ansiDiagnostic of data.diagnostics.ansi){
-                let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
-                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
-            }
-            if (typeof document !== "undefined") {
-                // Render the fancy html overlay
-                removeErrorOverlay();
-                var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
-                document.body.appendChild(overlay);
-            }
-        }
-    };
-    ws.onerror = function(e) {
-        console.error(e.message);
-    };
-    ws.onclose = function() {
-        console.warn("[parcel] \uD83D\uDEA8 Connection to the HMR server was lost");
-    };
-}
-function removeErrorOverlay() {
-    var overlay = document.getElementById(OVERLAY_ID);
-    if (overlay) {
-        overlay.remove();
-        console.log("[parcel] ✨ Error resolved");
-    }
-}
-function createErrorOverlay(diagnostics) {
-    var overlay = document.createElement("div");
-    overlay.id = OVERLAY_ID;
-    let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
-    for (let diagnostic of diagnostics){
-        let stack = diagnostic.frames.length ? diagnostic.frames.reduce((p, frame)=>{
-            return `${p}
-<a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
-${frame.code}`;
-        }, "") : diagnostic.stack;
-        errorHTML += `
-      <div>
-        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
-          🚨 ${diagnostic.message}
-        </div>
-        <pre>${stack}</pre>
-        <div>
-          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
-        </div>
-        ${diagnostic.documentation ? `<div>📝 <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
-      </div>
-    `;
-    }
-    errorHTML += "</div>";
-    overlay.innerHTML = errorHTML;
-    return overlay;
-}
-function fullReload() {
-    if ("reload" in location) location.reload();
-    else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
-}
-function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
-    var modules = bundle.modules;
-    if (!modules) return [];
-    var parents = [];
-    var k, d, dep;
-    for(k in modules)for(d in modules[k][1]){
-        dep = modules[k][1][d];
-        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
-            bundle,
-            k
-        ]);
-    }
-    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
-    return parents;
-}
-function updateLink(link) {
-    var newLink = link.cloneNode();
-    newLink.onload = function() {
-        if (link.parentNode !== null) // $FlowFixMe
-        link.parentNode.removeChild(link);
-    };
-    newLink.setAttribute("href", link.getAttribute("href").split("?")[0] + "?" + Date.now()); // $FlowFixMe
-    link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-    if (cssTimeout) return;
-    cssTimeout = setTimeout(function() {
-        var links = document.querySelectorAll('link[rel="stylesheet"]');
-        for(var i = 0; i < links.length; i++){
-            // $FlowFixMe[incompatible-type]
-            var href = links[i].getAttribute("href");
-            var hostname = getHostname();
-            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
-            var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
-            if (!absolute) updateLink(links[i]);
-        }
-        cssTimeout = null;
-    }, 50);
-}
-function hmrDownload(asset) {
-    if (asset.type === "js") {
-        if (typeof document !== "undefined") {
-            let script = document.createElement("script");
-            script.src = asset.url + "?t=" + Date.now();
-            if (asset.outputFormat === "esmodule") script.type = "module";
-            return new Promise((resolve, reject)=>{
-                var _document$head;
-                script.onload = ()=>resolve(script);
-                script.onerror = reject;
-                (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
-            });
-        } else if (typeof importScripts === "function") {
-            // Worker scripts
-            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
-            else return new Promise((resolve, reject)=>{
-                try {
-                    importScripts(asset.url + "?t=" + Date.now());
-                    resolve();
-                } catch (err) {
-                    reject(err);
-                }
-            });
-        }
-    }
-}
-async function hmrApplyUpdates(assets) {
-    global.parcelHotUpdate = Object.create(null);
-    let scriptsToRemove;
-    try {
-        // If sourceURL comments aren't supported in eval, we need to load
-        // the update from the dev server over HTTP so that stack traces
-        // are correct in errors/logs. This is much slower than eval, so
-        // we only do it if needed (currently just Safari).
-        // https://bugs.webkit.org/show_bug.cgi?id=137297
-        // This path is also taken if a CSP disallows eval.
-        if (!supportsSourceURL) {
-            let promises = assets.map((asset)=>{
-                var _hmrDownload;
-                return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
-                    // Web extension bugfix for Chromium
-                    // https://bugs.chromium.org/p/chromium/issues/detail?id=1255412#c12
-                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3) {
-                        if (typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
-                            extCtx.runtime.reload();
-                            return;
-                        }
-                        asset.url = extCtx.runtime.getURL("/__parcel_hmr_proxy__?url=" + encodeURIComponent(asset.url + "?t=" + Date.now()));
-                        return hmrDownload(asset);
-                    }
-                    throw err;
-                });
-            });
-            scriptsToRemove = await Promise.all(promises);
-        }
-        assets.forEach(function(asset) {
-            hmrApply(module.bundle.root, asset);
-        });
-    } finally{
-        delete global.parcelHotUpdate;
-        if (scriptsToRemove) scriptsToRemove.forEach((script)=>{
-            if (script) {
-                var _document$head2;
-                (_document$head2 = document.head) === null || _document$head2 === void 0 || _document$head2.removeChild(script);
-            }
-        });
-    }
-}
-function hmrApply(bundle, asset) {
-    var modules = bundle.modules;
-    if (!modules) return;
-    if (asset.type === "css") reloadCSS();
-    else if (asset.type === "js") {
-        let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
-        if (deps) {
-            if (modules[asset.id]) {
-                // Remove dependencies that are removed and will become orphaned.
-                // This is necessary so that if the asset is added back again, the cache is gone, and we prevent a full page reload.
-                let oldDeps = modules[asset.id][1];
-                for(let dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
-                    let id = oldDeps[dep];
-                    let parents = getParents(module.bundle.root, id);
-                    if (parents.length === 1) hmrDelete(module.bundle.root, id);
-                }
-            }
-            if (supportsSourceURL) // Global eval. We would use `new Function` here but browser
-            // support for source maps is better with eval.
-            (0, eval)(asset.output);
-             // $FlowFixMe
-            let fn = global.parcelHotUpdate[asset.id];
-            modules[asset.id] = [
-                fn,
-                deps
-            ];
-        } else if (bundle.parent) hmrApply(bundle.parent, asset);
-    }
-}
-function hmrDelete(bundle, id) {
-    let modules = bundle.modules;
-    if (!modules) return;
-    if (modules[id]) {
-        // Collect dependencies that will become orphaned when this module is deleted.
-        let deps = modules[id][1];
-        let orphans = [];
-        for(let dep in deps){
-            let parents = getParents(module.bundle.root, deps[dep]);
-            if (parents.length === 1) orphans.push(deps[dep]);
-        } // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
-        delete modules[id];
-        delete bundle.cache[id]; // Now delete the orphans.
-        orphans.forEach((id)=>{
-            hmrDelete(module.bundle.root, id);
-        });
-    } else if (bundle.parent) hmrDelete(bundle.parent, id);
-}
-function hmrAcceptCheck(bundle, id, depsByBundle) {
-    if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
-     // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
-    let parents = getParents(module.bundle.root, id);
-    let accepted = false;
-    while(parents.length > 0){
-        let v = parents.shift();
-        let a = hmrAcceptCheckOne(v[0], v[1], null);
-        if (a) // If this parent accepts, stop traversing upward, but still consider siblings.
-        accepted = true;
-        else {
-            // Otherwise, queue the parents in the next level upward.
-            let p = getParents(module.bundle.root, v[1]);
-            if (p.length === 0) {
-                // If there are no parents, then we've reached an entry without accepting. Reload.
-                accepted = false;
-                break;
-            }
-            parents.push(...p);
-        }
-    }
-    return accepted;
-}
-function hmrAcceptCheckOne(bundle, id, depsByBundle) {
-    var modules = bundle.modules;
-    if (!modules) return;
-    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
-        // If we reached the root bundle without finding where the asset should go,
-        // there's nothing to do. Mark as "accepted" so we don't reload the page.
-        if (!bundle.parent) return true;
-        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
-    }
-    if (checkedAssets[id]) return true;
-    checkedAssets[id] = true;
-    var cached = bundle.cache[id];
-    assetsToAccept.push([
-        bundle,
-        id
-    ]);
-    if (!cached || cached.hot && cached.hot._acceptCallbacks.length) return true;
-}
-function hmrAcceptRun(bundle, id) {
-    var cached = bundle.cache[id];
-    bundle.hotData = {};
-    if (cached && cached.hot) cached.hot.data = bundle.hotData;
-    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
-        cb(bundle.hotData);
-    });
-    delete bundle.cache[id];
-    bundle(id);
-    cached = bundle.cache[id];
-    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
-        var assetsToAlsoAccept = cb(function() {
-            return getParents(module.bundle.root, id);
-        });
-        if (assetsToAlsoAccept && assetsToAccept.length) // $FlowFixMe[method-unbinding]
-        assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
-    });
-    acceptedAssets[id] = true;
-}
-
 },{}],"8lqZg":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$20e5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -2899,8 +2941,6 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$20e5.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * Entry point of application, where App is rendered within the div with the id of "app"
  */ // import React from "react";
@@ -2908,6 +2948,8 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 // import App from "./App";
 // render(<App></App>, document.getElementById("app"));
 //reactdom update
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
@@ -2927,9 +2969,9 @@ var _appDefault = parcelHelpers.interopDefault(_app);
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","./App":"e9Zfo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
-module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
+module.exports = require("ee51401569654d91");
 
-},{"./cjs/react-jsx-dev-runtime.development.js":"48uCM"}],"48uCM":[function(require,module,exports) {
+},{"ee51401569654d91":"48uCM"}],"48uCM":[function(require,module,exports) {
 /**
  * @license React
  * react-jsx-dev-runtime.development.js
@@ -2941,7 +2983,7 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
  */ "use strict";
 (function() {
     "use strict";
-    var React = require("react");
+    var React = require("58362d9d82be395f");
     // ATTENTION
     // When adding new symbols to this file,
     // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
@@ -3004,7 +3046,8 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
          // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
         if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
         if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // types supported by any Flight configuration anywhere since
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+            // types supported by any Flight configuration anywhere since
             // we don't know which Flight build this will end up being used
             // with.
             type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
@@ -3198,16 +3241,16 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
                 } else {
                     try {
                         Fake.call();
-                    } catch (x1) {
-                        control = x1;
+                    } catch (x) {
+                        control = x;
                     }
                     fn.call(Fake.prototype);
                 }
             } else {
                 try {
                     throw Error();
-                } catch (x2) {
-                    control = x2;
+                } catch (x) {
+                    control = x;
                 }
                 fn();
             }
@@ -3678,7 +3721,8 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
         if (type === null || type === undefined || typeof type === "string") return;
         var propTypes;
         if (typeof type === "function") propTypes = type.propTypes;
-        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Inner props are checked in the reconciler.
+        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
         type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
         else return;
         if (propTypes) {
@@ -3758,11 +3802,11 @@ module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
     exports.jsxDEV = jsxDEV$1;
 })();
 
-},{"react":"21dqq"}],"21dqq":[function(require,module,exports) {
+},{"58362d9d82be395f":"21dqq"}],"21dqq":[function(require,module,exports) {
 "use strict";
-module.exports = require("./cjs/react.development.js");
+module.exports = require("a569817e6ea559f6");
 
-},{"./cjs/react.development.js":"6YvXz"}],"6YvXz":[function(require,module,exports) {
+},{"a569817e6ea559f6":"6YvXz"}],"6YvXz":[function(require,module,exports) {
 /**
  * @license React
  * react.development.js
@@ -4814,7 +4858,8 @@ module.exports = require("./cjs/react.development.js");
          // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
         if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
         if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // types supported by any Flight configuration anywhere since
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+            // types supported by any Flight configuration anywhere since
             // we don't know which Flight build this will end up being used
             // with.
             type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
@@ -5054,16 +5099,16 @@ module.exports = require("./cjs/react.development.js");
                 } else {
                     try {
                         Fake.call();
-                    } catch (x1) {
-                        control = x1;
+                    } catch (x) {
+                        control = x;
                     }
                     fn.call(Fake.prototype);
                 }
             } else {
                 try {
                     throw Error();
-                } catch (x2) {
-                    control = x2;
+                } catch (x) {
+                    control = x;
                 }
                 fn();
             }
@@ -5303,7 +5348,8 @@ module.exports = require("./cjs/react.development.js");
         if (type === null || type === undefined || typeof type === "string") return;
         var propTypes;
         if (typeof type === "function") propTypes = type.propTypes;
-        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Inner props are checked in the reconciler.
+        else if (typeof type === "object" && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+        // Inner props are checked in the reconciler.
         type.$$typeof === REACT_MEMO_TYPE)) propTypes = type.propTypes;
         else return;
         if (propTypes) {
@@ -5464,9 +5510,9 @@ module.exports = require("./cjs/react.development.js");
                     flushActQueue(queue);
                 }
             }
-        } catch (error1) {
+        } catch (error) {
             popActScope(prevActScopeDepth);
-            throw error1;
+            throw error;
         } finally{
             ReactCurrentActQueue.isBatchingLegacy = prevIsBatchingLegacy;
         }
@@ -5640,9 +5686,9 @@ function checkDCE() {
     // a false positive.
     throw new Error("^_^");
 }
-module.exports = require("./cjs/react-dom.development.js");
+module.exports = require("b0f0e6b9e8349dac");
 
-},{"./cjs/react-dom.development.js":"3iA9v"}],"3iA9v":[function(require,module,exports) {
+},{"b0f0e6b9e8349dac":"3iA9v"}],"3iA9v":[function(require,module,exports) {
 /**
  * @license React
  * react-dom.development.js
@@ -5655,8 +5701,8 @@ module.exports = require("./cjs/react-dom.development.js");
 (function() {
     "use strict";
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("react");
-    var Scheduler = require("scheduler");
+    var React = require("6f0162e9ab224cd4");
+    var Scheduler = require("8ad4ca65319d28a7");
     var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
     var suppressWarning = false;
     function setSuppressWarning(newSuppressWarning) {
@@ -6472,16 +6518,16 @@ module.exports = require("./cjs/react-dom.development.js");
                 } else {
                     try {
                         Fake.call();
-                    } catch (x1) {
-                        control = x1;
+                    } catch (x) {
+                        control = x;
                     }
                     fn.call(Fake.prototype);
                 }
             } else {
                 try {
                     throw Error();
-                } catch (x2) {
-                    control = x2;
+                } catch (x) {
+                    control = x;
                 }
                 fn();
             }
@@ -6957,7 +7003,8 @@ module.exports = require("./cjs/react-dom.development.js");
         var type = props.type;
         if (value != null) {
             if (type === "number") {
-                if (value === 0 && node.value === "" || // eslint-disable-next-line
+                if (value === 0 && node.value === "" || // We explicitly want to coerce to number here if possible.
+                // eslint-disable-next-line
                 node.value != value) node.value = toString(value);
             } else if (node.value !== toString(value)) node.value = toString(value);
         } else if (type === "submit" || type === "reset") {
@@ -9660,12 +9707,14 @@ module.exports = require("./cjs/react-dom.development.js");
          // If we're already in the middle of a render, switching lanes will interrupt
         // it and we'll lose our progress. We should only do this if the new lanes are
         // higher priority.
-        if (wipLanes !== NoLanes && wipLanes !== nextLanes && // bother waiting until the root is complete.
+        if (wipLanes !== NoLanes && wipLanes !== nextLanes && // If we already suspended with a delay, then interrupting is fine. Don't
+        // bother waiting until the root is complete.
         (wipLanes & suspendedLanes) === NoLanes) {
             var nextLane = getHighestPriorityLane(nextLanes);
             var wipLane = getHighestPriorityLane(wipLanes);
             if (// one. This works because the bits decrease in priority as you go left.
-            nextLane >= wipLane || // only difference between default updates and transition updates is that
+            nextLane >= wipLane || // Default priority updates should not interrupt transition updates. The
+            // only difference between default updates and transition updates is that
             // default updates do not support refresh transitions.
             nextLane === DefaultLane && (wipLane & TransitionLanes) !== NoLanes) // Keep working on the existing in-progress tree. Do not interrupt.
             return wipLanes;
@@ -9980,7 +10029,8 @@ module.exports = require("./cjs/react-dom.development.js");
         while(lanes){
             var index = pickArbitraryLaneIndex(lanes);
             var lane = 1 << index;
-            if (lane & entangledLanes | entanglements[index] & entangledLanes) entanglements[index] |= entangledLanes;
+            if (lane & entangledLanes | // Is this lane transitively entangled with the newly entangled lanes?
+            entanglements[index] & entangledLanes) entanglements[index] |= entangledLanes;
             lanes &= ~lane;
         }
     }
@@ -11150,7 +11200,8 @@ module.exports = require("./cjs/react-dom.development.js");
  * This is required because Firefox fires `keypress` events for key commands
  * (cut, copy, select-all, etc.) even though no character is inserted.
  */ function isKeypressCommand(nativeEvent) {
-        return (nativeEvent.ctrlKey || nativeEvent.altKey || nativeEvent.metaKey) && !(nativeEvent.ctrlKey && nativeEvent.altKey);
+        return (nativeEvent.ctrlKey || nativeEvent.altKey || nativeEvent.metaKey) && // ctrlKey && altKey is equivalent to AltGr, and is not a command.
+        !(nativeEvent.ctrlKey && nativeEvent.altKey);
     }
     /**
  * Translate native top level events into event types.
@@ -12371,7 +12422,8 @@ module.exports = require("./cjs/react-dom.development.js");
         // In the past, React has always bubbled them, but this can be surprising.
         // We're going to try aligning closer to the browser behavior by not bubbling
         // them in React either. We'll start by not bubbling onScroll, and then expand.
-        var accumulateTargetOnly = !inCapturePhase && // nonDelegatedEvents list in DOMPluginEventSystem.
+        var accumulateTargetOnly = !inCapturePhase && // TODO: ideally, we'd eventually add all events from
+        // nonDelegatedEvents list in DOMPluginEventSystem.
         // Then we can remove this special list.
         // This is a breaking change that can wait until React 18.
         domEventName === "scroll";
@@ -13310,12 +13362,14 @@ module.exports = require("./cjs/react-dom.development.js");
                     if (typeof nextProp !== "function") warnForInvalidEventListener(propKey, nextProp);
                     if (propKey === "onScroll") listenToNonDelegatedEvent("scroll", domElement);
                 }
-            } else if (shouldWarnDev && true && typeof isCustomComponentTag === "boolean") {
+            } else if (shouldWarnDev && true && // Convince Flow we've calculated it (it's DEV-only in this method.)
+            typeof isCustomComponentTag === "boolean") {
                 // Validate that the properties correspond to their expected values.
                 var serverValue = void 0;
                 var propertyInfo = isCustomComponentTag && enableCustomElementPropertySupport ? null : getPropertyInfo(propKey);
                 if (rawProps[SUPPRESS_HYDRATION_WARNING] === true) ;
-                else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING || // TODO: Only ignore them on controlled tags.
+                else if (propKey === SUPPRESS_CONTENT_EDITABLE_WARNING || propKey === SUPPRESS_HYDRATION_WARNING || // Controlled attributes are not validated
+                // TODO: Only ignore them on controlled tags.
                 propKey === "value" || propKey === "checked" || propKey === "selected") ;
                 else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
                     var serverHTML = domElement.innerHTML;
@@ -15130,7 +15184,8 @@ module.exports = require("./cjs/react-dom.development.js");
     ReactStrictModeWarnings.recordUnsafeLifecycleWarnings = function(fiber, instance) {
         // Dedupe strategy: Warn once per component.
         if (didWarnAboutUnsafeLifecycles.has(fiber.type)) return;
-        if (typeof instance.componentWillMount === "function" && instance.componentWillMount.__suppressDeprecationWarning !== true) pendingComponentWillMountWarnings.push(fiber);
+        if (typeof instance.componentWillMount === "function" && // Don't warn about react-lifecycles-compat polyfilled components.
+        instance.componentWillMount.__suppressDeprecationWarning !== true) pendingComponentWillMountWarnings.push(fiber);
         if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillMount === "function") pendingUNSAFE_ComponentWillMountWarnings.push(fiber);
         if (typeof instance.componentWillReceiveProps === "function" && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) pendingComponentWillReceivePropsWarnings.push(fiber);
         if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillReceiveProps === "function") pendingUNSAFE_ComponentWillReceivePropsWarnings.push(fiber);
@@ -15835,7 +15890,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     } // Process this update.
                     newState = getStateFromUpdate(workInProgress, queue, update, newState, props, instance);
                     var callback = update.callback;
-                    if (callback !== null && // callback again.
+                    if (callback !== null && // If the update was already committed, we should not queue its
+                    // callback again.
                     update.lane !== NoLane) {
                         workInProgress.flags |= Callback;
                         var effects = queue.effects;
@@ -16354,7 +16410,8 @@ module.exports = require("./cjs/react-dom.development.js");
             applyDerivedStateFromProps(workInProgress, ctor, getDerivedStateFromProps, newProps);
             newState = workInProgress.memoizedState;
         }
-        var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // both before and after `shouldComponentUpdate` has been called. Not ideal,
+        var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress, ctor, oldProps, newProps, oldState, newState, nextContext) || // TODO: In some cases, we'll end up checking if context has changed twice,
+        // both before and after `shouldComponentUpdate` has been called. Not ideal,
         // but I'm loath to refactor this function. This only happens for memoized
         // components so it's not that common.
         enableLazyContextPropagation;
@@ -16416,7 +16473,8 @@ module.exports = require("./cjs/react-dom.development.js");
         if (mixedRef !== null && typeof mixedRef !== "function" && typeof mixedRef !== "object") {
             // TODO: Clean this up once we turn on the string ref warning for
             // everyone, because the strict mode case will no longer be relevant
-            if ((returnFiber.mode & StrictLegacyMode || warnAboutStringRefs) && // because these cannot be automatically converted to an arrow function
+            if ((returnFiber.mode & StrictLegacyMode || warnAboutStringRefs) && // We warn in ReactElement.js if owner and self are equal for string refs
+            // because these cannot be automatically converted to an arrow function
             // using a codemod. Therefore, we don't have to warn about string refs again.
             !(element._owner && element._self && element._owner.stateNode !== element._self)) {
                 var componentName = getComponentNameFromFiber(returnFiber) || "Component";
@@ -16564,7 +16622,8 @@ module.exports = require("./cjs/react-dom.development.js");
             var elementType = element.type;
             if (elementType === REACT_FRAGMENT_TYPE) return updateFragment(returnFiber, current, element.props.children, lanes, element.key);
             if (current !== null) {
-                if (current.elementType === elementType || isCompatibleFamilyForHotReloading(current, element) || // We need to do this after the Hot Reloading check above,
+                if (current.elementType === elementType || isCompatibleFamilyForHotReloading(current, element) || // Lazy types should reconcile their resolved type.
+                // We need to do this after the Hot Reloading check above,
                 // because hot reloading has different semantics than prod because
                 // it doesn't resuspend. So we can't let the call below suspend.
                 typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === current.type) {
@@ -16838,7 +16897,8 @@ module.exports = require("./cjs/react-dom.development.js");
             if (typeof iteratorFn !== "function") throw new Error("An object is not an iterable. This error is likely caused by a bug in React. Please file an issue.");
             // We don't support rendering Generators because it's a mutation.
             // See https://github.com/facebook/react/issues/12995
-            if (typeof Symbol === "function" && newChildrenIterable[Symbol.toStringTag] === "Generator") {
+            if (typeof Symbol === "function" && // $FlowFixMe Flow doesn't know about toStringTag
+            newChildrenIterable[Symbol.toStringTag] === "Generator") {
                 if (!didWarnAboutGenerators) error("Using Generators as children is unsupported and will likely yield unexpected results because enumerating a generator mutates it. You may convert it to an array with `Array.from()` or the `[...spread]` operator before rendering. Keep in mind you might need to polyfill these features for older browsers.");
                 didWarnAboutGenerators = true;
             } // Warn about using Maps as children
@@ -16984,7 +17044,8 @@ module.exports = require("./cjs/react-dom.development.js");
                             existing._debugOwner = element._owner;
                             return existing;
                         }
-                    } else if (child.elementType === elementType || isCompatibleFamilyForHotReloading(child, element) || // We need to do this after the Hot Reloading check above,
+                    } else if (child.elementType === elementType || isCompatibleFamilyForHotReloading(child, element) || // Lazy types should reconcile their resolved type.
+                    // We need to do this after the Hot Reloading check above,
                     // because hot reloading has different semantics than prod because
                     // it doesn't resuspend. So we can't let the call below suspend.
                     typeof elementType === "object" && elementType !== null && elementType.$$typeof === REACT_LAZY_TYPE && resolveLazy(elementType) === child.type) {
@@ -17201,7 +17262,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     var dehydrated = state.dehydrated;
                     if (dehydrated === null || isSuspenseInstancePending(dehydrated) || isSuspenseInstanceFallback(dehydrated)) return node;
                 }
-            } else if (node.tag === SuspenseListComponent && // keep track of whether it suspended or not.
+            } else if (node.tag === SuspenseListComponent && // revealOrder undefined can't be trusted because it don't
+            // keep track of whether it suspended or not.
             node.memoizedProps.revealOrder !== undefined) {
                 var didSuspend = (node.flags & DidCapture) !== NoFlags;
                 if (didSuspend) return node;
@@ -17394,7 +17456,8 @@ module.exports = require("./cjs/react-dom.development.js");
         // render. If this fires, it suggests that we incorrectly reset the static
         // flags in some other part of the codebase. This has happened before, for
         // example, in the SuspenseList implementation.
-        if (current !== null && (current.flags & StaticMask) !== (workInProgress.flags & StaticMask) && // and creates false positives. To make this work in legacy mode, we'd
+        if (current !== null && (current.flags & StaticMask) !== (workInProgress.flags & StaticMask) && // Disable this warning in legacy mode, because legacy Suspense is weird
+        // and creates false positives. To make this work in legacy mode, we'd
         // need to mark fibers that commit in an incomplete state, somehow. For
         // now I'll disable the warning that most of the bugs that would trigger
         // it are either exclusive to concurrent mode or exist in both.
@@ -17765,7 +17828,8 @@ module.exports = require("./cjs/react-dom.development.js");
         // commit phase if there was an interleaved mutation. In concurrent mode
         // this can happen all the time, but even in synchronous mode, an earlier
         // effect may have mutated the store.
-        if (inst.getSnapshot !== getSnapshot || snapshotChanged || // checking whether we scheduled a subscription effect above.
+        if (inst.getSnapshot !== getSnapshot || snapshotChanged || // Check if the susbcribe function changed. We can save some memory by
+        // checking whether we scheduled a subscription effect above.
         workInProgressHook !== null && workInProgressHook.memoizedState.tag & HasEffect) {
             fiber.flags |= Passive;
             pushEffect(HasEffect | Passive$1, updateStoreInstance.bind(null, fiber, inst, nextSnapshot, getSnapshot), undefined, null); // Unless we're rendering a blocking lane, schedule a consistency check.
@@ -18234,7 +18298,7 @@ module.exports = require("./cjs/react-dom.development.js");
                             enqueueConcurrentHookUpdateAndEagerlyBailout(fiber, queue, update, lane);
                             return;
                         }
-                    } catch (error1) {} finally{
+                    } catch (error) {} finally{
                         ReactCurrentDispatcher$1.current = prevDispatcher;
                     }
                 }
@@ -19698,7 +19762,8 @@ module.exports = require("./cjs/react-dom.development.js");
     function updateMemoComponent(current, workInProgress, Component, nextProps, renderLanes) {
         if (current === null) {
             var type = Component.type;
-            if (isSimpleFunctionComponent(type) && Component.compare === null && Component.defaultProps === undefined) {
+            if (isSimpleFunctionComponent(type) && Component.compare === null && // SimpleMemoComponent codepath doesn't resolve outer props either.
+            Component.defaultProps === undefined) {
                 var resolvedType = type;
                 resolvedType = resolveFunctionForHotReloading(type);
                 // and with only the default shallow comparison, we upgrade it
@@ -20510,7 +20575,8 @@ module.exports = require("./cjs/react-dom.development.js");
         };
         var primaryChildFragment;
         if (// completed, even though it's in an inconsistent state.
-        (mode & ConcurrentMode) === NoMode && // already cloned. In legacy mode, the only case where this isn't true is
+        (mode & ConcurrentMode) === NoMode && // Make sure we're on the second pass, i.e. the primary child fragment was
+        // already cloned. In legacy mode, the only case where this isn't true is
         // when DevTools forces us to display a fallback; we skip the first render
         // pass entirely and go straight to rendering the fallback. (In Concurrent
         // Mode, SuspenseList can also trigger this scenario, but this is a legacy-
@@ -21205,7 +21271,8 @@ module.exports = require("./cjs/react-dom.development.js");
                 // Neither props nor legacy context changes. Check if there's a pending
                 // update or context change.
                 var hasScheduledUpdateOrContext = checkScheduledUpdateOrContext(current, renderLanes);
-                if (!hasScheduledUpdateOrContext && // may not be work scheduled on `current`, so we check for this flag.
+                if (!hasScheduledUpdateOrContext && // If this is the second pass of an error or suspense boundary, there
+                // may not be work scheduled on `current`, so we check for this flag.
                 (workInProgress.flags & DidCapture) === NoFlags) {
                     // No pending updates or context. Bail out now.
                     didReceiveUpdate = false;
@@ -21597,7 +21664,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     markUpdate(workInProgress);
                     else if (current !== null) {
                         var prevState = current.memoizedState;
-                        if (!prevState.isDehydrated || (workInProgress.flags & ForceClientRender) !== NoFlags) {
+                        if (!prevState.isDehydrated || // Check if we reverted to client rendering (e.g. due to an error)
+                        (workInProgress.flags & ForceClientRender) !== NoFlags) {
                             // Schedule an effect to clear this container at the start of the
                             // next commit. This handles the case of React rendering into a
                             // container with previous children. It's also safe to do for
@@ -22124,8 +22192,8 @@ module.exports = require("./cjs/react-dom.development.js");
                         recordLayoutEffectDuration(current);
                     }
                     else retVal = ref(null);
-                } catch (error1) {
-                    captureCommitPhaseError(current, nearestMountedAncestor, error1);
+                } catch (error) {
+                    captureCommitPhaseError(current, nearestMountedAncestor, error);
                 }
                 if (typeof retVal === "function") error("Unexpected return value from a callback ref in %s. A callback ref should not return a function.", getComponentNameFromFiber(current));
             } else ref.current = null;
@@ -22498,8 +22566,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     var _instance3 = node.stateNode;
                     if (isHidden) hideTextInstance(_instance3);
                     else unhideTextInstance(_instance3, node.memoizedProps);
-                } catch (error1) {
-                    captureCommitPhaseError(finishedWork, finishedWork.return, error1);
+                } catch (error) {
+                    captureCommitPhaseError(finishedWork, finishedWork.return, error);
                 }
             } else if ((node.tag === OffscreenComponent || node.tag === LegacyHiddenComponent) && node.memoizedState !== null && node !== finishedWork) ;
             else if (node.child !== null) {
@@ -22971,14 +23039,14 @@ module.exports = require("./cjs/react-dom.development.js");
                         try {
                             startLayoutEffectTimer();
                             commitHookEffectListUnmount(Layout | HasEffect, finishedWork, finishedWork.return);
-                        } catch (error1) {
-                            captureCommitPhaseError(finishedWork, finishedWork.return, error1);
+                        } catch (error) {
+                            captureCommitPhaseError(finishedWork, finishedWork.return, error);
                         }
                         recordLayoutEffectDuration(finishedWork);
                     } else try {
                         commitHookEffectListUnmount(Layout | HasEffect, finishedWork, finishedWork.return);
-                    } catch (error2) {
-                        captureCommitPhaseError(finishedWork, finishedWork.return, error2);
+                    } catch (error) {
+                        captureCommitPhaseError(finishedWork, finishedWork.return, error);
                     }
                 }
                 return;
@@ -23005,8 +23073,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     var instance = finishedWork.stateNode;
                     try {
                         resetTextContent(instance);
-                    } catch (error3) {
-                        captureCommitPhaseError(finishedWork, finishedWork.return, error3);
+                    } catch (error) {
+                        captureCommitPhaseError(finishedWork, finishedWork.return, error);
                     }
                 }
                 if (flags & Update) {
@@ -23022,8 +23090,8 @@ module.exports = require("./cjs/react-dom.development.js");
                         finishedWork.updateQueue = null;
                         if (updatePayload !== null) try {
                             commitUpdate(_instance4, updatePayload, type, oldProps, newProps, finishedWork);
-                        } catch (error4) {
-                            captureCommitPhaseError(finishedWork, finishedWork.return, error4);
+                        } catch (error) {
+                            captureCommitPhaseError(finishedWork, finishedWork.return, error);
                         }
                     }
                 }
@@ -23040,8 +23108,8 @@ module.exports = require("./cjs/react-dom.development.js");
                     var oldText = current !== null ? current.memoizedProps : newText;
                     try {
                         commitTextUpdate(textInstance, oldText, newText);
-                    } catch (error5) {
-                        captureCommitPhaseError(finishedWork, finishedWork.return, error5);
+                    } catch (error) {
+                        captureCommitPhaseError(finishedWork, finishedWork.return, error);
                     }
                 }
                 return;
@@ -23053,8 +23121,8 @@ module.exports = require("./cjs/react-dom.development.js");
                         var prevRootState = current.memoizedState;
                         if (prevRootState.isDehydrated) try {
                             commitHydratedContainer(root.containerInfo);
-                        } catch (error6) {
-                            captureCommitPhaseError(finishedWork, finishedWork.return, error6);
+                        } catch (error) {
+                            captureCommitPhaseError(finishedWork, finishedWork.return, error);
                         }
                     }
                 }
@@ -23082,8 +23150,8 @@ module.exports = require("./cjs/react-dom.development.js");
                 if (flags & Update) {
                     try {
                         commitSuspenseCallback(finishedWork);
-                    } catch (error7) {
-                        captureCommitPhaseError(finishedWork, finishedWork.return, error7);
+                    } catch (error) {
+                        captureCommitPhaseError(finishedWork, finishedWork.return, error);
                     }
                     attachSuspenseRetryListeners(finishedWork);
                 }
@@ -23541,8 +23609,8 @@ module.exports = require("./cjs/react-dom.development.js");
                 var instance = fiber.stateNode;
                 try {
                     instance.componentDidMount();
-                } catch (error1) {
-                    captureCommitPhaseError(fiber, fiber.return, error1);
+                } catch (error) {
+                    captureCommitPhaseError(fiber, fiber.return, error);
                 }
                 break;
         }
@@ -23803,7 +23871,8 @@ module.exports = require("./cjs/react-dom.development.js");
                 markRootSuspended$1(root, workInProgressRootRenderLanes);
             }
             ensureRootIsScheduled(root, eventTime);
-            if (lane === SyncLane && executionContext === NoContext && (fiber.mode & ConcurrentMode) === NoMode && !ReactCurrentActQueue$1.isBatchingLegacy) {
+            if (lane === SyncLane && executionContext === NoContext && (fiber.mode & ConcurrentMode) === NoMode && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
+            !ReactCurrentActQueue$1.isBatchingLegacy) {
                 // Flush the synchronous work now, unless we're already working or inside
                 // a batch. This is intentionally inside scheduleUpdateOnFiber instead of
                 // scheduleCallbackForFiber to preserve the ability to schedule a callback
@@ -23853,7 +23922,8 @@ module.exports = require("./cjs/react-dom.development.js");
         } // We use the highest priority lane to represent the priority of the callback.
         var newCallbackPriority = getHighestPriorityLane(nextLanes); // Check if there's an existing task. We may be able to reuse it.
         var existingCallbackPriority = root.callbackPriority;
-        if (existingCallbackPriority === newCallbackPriority && // Scheduler task, rather than an `act` task, cancel it and re-scheduled
+        if (existingCallbackPriority === newCallbackPriority && // Special case related to `act`. If the currently scheduled task is a
+        // Scheduler task, rather than an `act` task, cancel it and re-scheduled
         // on the `act` queue.
         !(ReactCurrentActQueue$1.current !== null && existingCallbackNode !== fakeActCallbackNode)) {
             // If we're going to re-use an existing task, it needs to exist.
@@ -24065,7 +24135,8 @@ module.exports = require("./cjs/react-dom.development.js");
             case RootSuspended:
                 markRootSuspended$1(root, lanes); // We have an acceptable loading state. We need to figure out if we
                 // should immediately commit it or wait a bit.
-                if (includesOnlyRetries(lanes) && !shouldForceFlushFallbacksInDEV()) {
+                if (includesOnlyRetries(lanes) && // do not delay if we're inside an act() scope
+                !shouldForceFlushFallbacksInDEV()) {
                     // This render only included retries, no updates. Throttle committing
                     // retries so that we don't show too many loading states too quickly.
                     var msUntilTimeout = globalMostRecentFallbackTime + FALLBACK_THROTTLE_MS - now(); // Don't bother with a very short suspense time.
@@ -24231,7 +24302,8 @@ module.exports = require("./cjs/react-dom.development.js");
         } finally{
             executionContext = prevExecutionContext; // If there were legacy sync updates, flush them at the end of the outer
             // most batchedUpdates-like method.
-            if (executionContext === NoContext && !ReactCurrentActQueue$1.isBatchingLegacy) {
+            if (executionContext === NoContext && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
+            !ReactCurrentActQueue$1.isBatchingLegacy) {
                 resetRenderTimer();
                 flushSyncCallbacksOnlyInLegacyMode();
             }
@@ -25432,7 +25504,7 @@ module.exports = require("./cjs/react-dom.development.js");
         new Set([
             nonExtensibleObject
         ]);
-    /* eslint-enable no-new */ } catch (e1) {
+    /* eslint-enable no-new */ } catch (e) {
         // TODO: Consider warning about bad polyfills
         hasBadMapPolyfill = true;
     }
@@ -26530,7 +26602,9 @@ module.exports = require("./cjs/react-dom.development.js");
     setAttemptHydrationAtCurrentPriority(attemptHydrationAtCurrentPriority$1);
     setGetCurrentUpdatePriority(getCurrentUpdatePriority);
     setAttemptHydrationAtPriority(runWithPriority);
-    if (typeof Map !== "function" || Map.prototype == null || typeof Map.prototype.forEach !== "function" || typeof Set !== "function" || Set.prototype == null || typeof Set.prototype.clear !== "function" || typeof Set.prototype.forEach !== "function") error("React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills");
+    if (typeof Map !== "function" || // $FlowIssue Flow incorrectly thinks Map has no prototype
+    Map.prototype == null || typeof Map.prototype.forEach !== "function" || typeof Set !== "function" || // $FlowIssue Flow incorrectly thinks Set has no prototype
+    Set.prototype == null || typeof Set.prototype.clear !== "function" || typeof Set.prototype.forEach !== "function") error("React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills");
     setRestoreImplementation(restoreControlledState$3);
     setBatchingImplementation(batchedUpdates$1, discreteUpdates, flushSync);
     function createPortal$1(children, container) {
@@ -26599,11 +26673,11 @@ module.exports = require("./cjs/react-dom.development.js");
     /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
 })();
 
-},{"react":"21dqq","scheduler":"juvHo"}],"juvHo":[function(require,module,exports) {
+},{"6f0162e9ab224cd4":"21dqq","8ad4ca65319d28a7":"juvHo"}],"juvHo":[function(require,module,exports) {
 "use strict";
-module.exports = require("./cjs/scheduler.development.js");
+module.exports = require("ef03b89c8fe2794e");
 
-},{"./cjs/scheduler.development.js":"RqdIf"}],"RqdIf":[function(require,module,exports) {
+},{"ef03b89c8fe2794e":"RqdIf"}],"RqdIf":[function(require,module,exports) {
 /**
  * @license React
  * scheduler.development.js
@@ -27064,14 +27138,14 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$2430.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * Application component
  *
  * To contain application wide settings, routes, state, etc.
- */ var _react = require("react");
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _about = require("./Components/About");
 var _aboutDefault = parcelHelpers.interopDefault(_about);
@@ -27155,21 +27229,21 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./styles.css":"lW6qc"}],"kouZu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kouZu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$17a8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$17a8.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * About component
  *
  * Space for you to describe more about yourself.
- */ var _react = require("react");
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 /**
  * About background image
@@ -27183,6 +27257,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
  */ // import image from "../images/mosaic.svg";
 var _abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg = require("../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg");
 var _abstractDarkBlueBrokenTilesBackgroundSBI300875744JpgDefault = parcelHelpers.interopDefault(_abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg);
+// import image from "../../dist/abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg";
 const imageAltText = "purple and blue abstract background";
 /**
  * Sort description that expands on your title on the Home component.
@@ -27218,7 +27293,7 @@ const About = ()=>{
                 alt: imageAltText
             }, void 0, false, {
                 fileName: "src/Components/About.jsx",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27234,7 +27309,7 @@ const About = ()=>{
                         children: "About Myself"
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 68,
+                        lineNumber: 69,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27242,12 +27317,12 @@ const About = ()=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 69,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 70,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -27262,17 +27337,17 @@ const About = ()=>{
                                 children: skill
                             }, skill, false, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 81,
+                                lineNumber: 82,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 71,
+                        lineNumber: 72,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 84,
+                        lineNumber: 85,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27282,19 +27357,19 @@ const About = ()=>{
                         children: detailOrQuote
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 85,
+                        lineNumber: 86,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/About.jsx",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/About.jsx",
-        lineNumber: 57,
+        lineNumber: 58,
         columnNumber: 5
     }, undefined);
 };
@@ -27308,7 +27383,45 @@ $RefreshReg$(_c, "About");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg":"im5gn"}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg":"im5gn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"im5gn":[function(require,module,exports) {
+module.exports = require("e3e482d554751f83").getBundleURL("bLxZJ") + "abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg" + "?" + Date.now();
+
+},{"e3e482d554751f83":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27340,21 +27453,35 @@ exports.export = function(dest, destName, get) {
 
 },{}],"km3Ru":[function(require,module,exports) {
 "use strict";
-var Refresh = require("react-refresh/runtime");
+var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
-    var args;
-    var timeout = undefined;
-    return function(args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(function() {
-            timeout = undefined;
-            func.call(null, args);
-        }, delay);
-    };
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
+            }
+        };
+    }
 }
 var enqueueUpdate = debounce(function() {
     Refresh.performReactRefresh();
-}, 30); // Everthing below is either adapted or copied from
+}, 30);
+// Everthing below is either adapted or copied from
 // https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
 // MIT License - Copyright (c) Facebook, Inc. and its affiliates.
 module.exports.prelude = function(module1) {
@@ -27373,9 +27500,11 @@ module.exports.postlude = function(module1) {
             });
             module1.hot.accept(function(getParents) {
                 var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports; // Since we just executed the code for it, it's possible
+                var nextExports = module1.exports;
+                // Since we just executed the code for it, it's possible
                 // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports); // It can also become ineligible if its exports are incompatible
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+                // It can also become ineligible if its exports are incompatible
                 // with the previous exports.
                 // For example, if you add/remove/change exports, we'll want
                 // to re-execute the importing modules, and force those components
@@ -27425,7 +27554,8 @@ function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
         if (prevSignature[i] !== nextSignature[i]) return true;
     }
     return false;
-} // When this signature changes, it's unsafe to stop at this refresh boundary.
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
 function getRefreshBoundarySignature(exports) {
     var signature = [];
     signature.push(Refresh.getFamilyByType(exports));
@@ -27454,57 +27584,18 @@ function registerExportsForReactRefresh(module1) {
         var desc = Object.getOwnPropertyDescriptor(exports, key);
         if (desc && desc.get && !isESM) continue;
         var exportValue = exports[key];
-        Refresh.register(exportValue, id + " %exports% " + key);
+        var typeID = id + " %exports% " + key;
+        Refresh.register(exportValue, typeID);
     }
 }
 
-},{"react-refresh/runtime":"786KC"}],"im5gn":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg" + "?" + Date.now();
-
-},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"7GWgX":[function(require,module,exports) {
+},{"7422ead32dcc1e6b":"786KC"}],"7GWgX":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8b43 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$8b43.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * Footer component
  *
@@ -27513,7 +27604,10 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
  * renders the Footer.
  *
  * If a social value has an empty string it will not be displayed.
- */ var _react = require("react");
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
@@ -27538,7 +27632,7 @@ var _youtubeSvgDefault = parcelHelpers.interopDefault(_youtubeSvg);
  *  HTML hyperlinks: https://www.w3schools.com/html/html_links.asp
  *  Opening links in new tabs: https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/
  */ const Footer = (props)=>{
-    const { devDotTo , email , gitHub , instagram , linkedIn , medium , name , primaryColor , twitter , youTube ,  } = props;
+    const { devDotTo , email , gitHub , instagram , linkedIn , medium , name , primaryColor , twitter , youTube  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         id: "contact",
         style: {
@@ -27761,17 +27855,22 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/devdotto.svg":"69cpV","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/socials/instagram.svg":"jH0VA","../images/socials/linkedin.svg":"5XSmz","../images/socials/twitter.svg":"flM6L","../images/socials/youtube.svg":"hmN7D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
-var ReactIs = require("react-is");
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ var ReactIs = require("96e34ae03f5a2631");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
-module.exports = require("./factoryWithTypeCheckers")(ReactIs.isElement, throwOnDirectAccess);
+module.exports = require("cb216452e2171041")(ReactIs.isElement, throwOnDirectAccess);
 
-},{"react-is":"7EuwB","./factoryWithTypeCheckers":"bBUgD"}],"7EuwB":[function(require,module,exports) {
+},{"96e34ae03f5a2631":"7EuwB","cb216452e2171041":"bBUgD"}],"7EuwB":[function(require,module,exports) {
 "use strict";
-module.exports = require("./cjs/react-is.development.js");
+module.exports = require("2255125a8e8b1051");
 
-},{"./cjs/react-is.development.js":"5DsXl"}],"5DsXl":[function(require,module,exports) {
+},{"2255125a8e8b1051":"5DsXl"}],"5DsXl":[function(require,module,exports) {
 /** @license React v16.13.1
  * react-is.development.js
  *
@@ -27805,7 +27904,8 @@ module.exports = require("./cjs/react-is.development.js");
     var REACT_RESPONDER_TYPE = hasSymbol ? Symbol.for("react.responder") : 0xead6;
     var REACT_SCOPE_TYPE = hasSymbol ? Symbol.for("react.scope") : 0xead7;
     function isValidElementType(type) {
-        return typeof type === "string" || typeof type === "function" || type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
+        return typeof type === "string" || typeof type === "function" || // Note: its typeof might be other than 'symbol' or 'number' if it's a polyfill.
+        type === REACT_FRAGMENT_TYPE || type === REACT_CONCURRENT_MODE_TYPE || type === REACT_PROFILER_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || typeof type === "object" && type !== null && (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_RESPONDER_TYPE || type.$$typeof === REACT_SCOPE_TYPE || type.$$typeof === REACT_BLOCK_TYPE);
     }
     function typeOf(object) {
         if (typeof object === "object" && object !== null) {
@@ -27934,11 +28034,11 @@ module.exports = require("./cjs/react-is.development.js");
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
-var ReactIs = require("react-is");
-var assign = require("object-assign");
-var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret");
-var has = require("./lib/has");
-var checkPropTypes = require("./checkPropTypes");
+var ReactIs = require("c437388b089702c3");
+var assign = require("c067a60101d8520c");
+var ReactPropTypesSecret = require("74a0f89a70b9f3c2");
+var has = require("18441b11647bc78");
+var checkPropTypes = require("bec3f6ff89f0b072");
 var printWarning = function() {};
 printWarning = function(text) {
     var message = "Warning: " + text;
@@ -28365,7 +28465,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
     return ReactPropTypes;
 };
 
-},{"react-is":"7EuwB","object-assign":"7OXxh","./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf","./checkPropTypes":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
+},{"c437388b089702c3":"7EuwB","c067a60101d8520c":"7OXxh","74a0f89a70b9f3c2":"jZTZJ","18441b11647bc78":"fqKuf","bec3f6ff89f0b072":"5VwyJ"}],"7OXxh":[function(require,module,exports) {
 /*
 object-assign
 (c) Sindre Sorhus
@@ -28441,9 +28541,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
 var printWarning = function() {};
-var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret");
+var ReactPropTypesSecret = require("24ba1e58d167a82c");
 var loggedTypeFailures = {};
-var has = require("./lib/has");
+var has = require("898bc82f39d83f7c");
 printWarning = function(text) {
     var message = "Warning: " + text;
     if (typeof console !== "undefined") console.error(message);
@@ -28501,43 +28601,43 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"69cpV":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "devdotto.3bb7afaf.svg" + "?" + Date.now();
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"69cpV":[function(require,module,exports) {
+module.exports = require("44ce4ad004cf5a22").getBundleURL("bLxZJ") + "devdotto.3bb7afaf.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"92UhI":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "envelope.5e5e1d9e.svg" + "?" + Date.now();
+},{"44ce4ad004cf5a22":"lgJ39"}],"92UhI":[function(require,module,exports) {
+module.exports = require("b600a3caeecb39a2").getBundleURL("bLxZJ") + "envelope.5e5e1d9e.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"vP2m6":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "github.51e0fbb2.svg" + "?" + Date.now();
+},{"b600a3caeecb39a2":"lgJ39"}],"vP2m6":[function(require,module,exports) {
+module.exports = require("8bf678e0e7f004fd").getBundleURL("bLxZJ") + "github.51e0fbb2.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"jH0VA":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "instagram.84def2ad.svg" + "?" + Date.now();
+},{"8bf678e0e7f004fd":"lgJ39"}],"jH0VA":[function(require,module,exports) {
+module.exports = require("38945ce62c97208d").getBundleURL("bLxZJ") + "instagram.84def2ad.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"5XSmz":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "linkedin.49c2dcdf.svg" + "?" + Date.now();
+},{"38945ce62c97208d":"lgJ39"}],"5XSmz":[function(require,module,exports) {
+module.exports = require("1e02fc1f3fad5c91").getBundleURL("bLxZJ") + "linkedin.49c2dcdf.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"flM6L":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "twitter.7541cc84.svg" + "?" + Date.now();
+},{"1e02fc1f3fad5c91":"lgJ39"}],"flM6L":[function(require,module,exports) {
+module.exports = require("8211fd050b351247").getBundleURL("bLxZJ") + "twitter.7541cc84.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"hmN7D":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "youtube.c3557793.svg" + "?" + Date.now();
+},{"8211fd050b351247":"lgJ39"}],"hmN7D":[function(require,module,exports) {
+module.exports = require("7ab57dbc742b6209").getBundleURL("bLxZJ") + "youtube.c3557793.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"9Dt2F":[function(require,module,exports) {
+},{"7ab57dbc742b6209":"lgJ39"}],"9Dt2F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2a62 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$2a62.prelude(module);
 
 try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
  * Header component
  *
  * Top navigation bar for your site. Set to remain visible as the
  * user scrolls so that they can constantly reach any part of your page.
- */ var _react = require("react");
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28628,7 +28728,7 @@ var _philipBasnightCropPng = require("../images/PhilipBasnightCrop.png");
 var _philipBasnightCropPngDefault = parcelHelpers.interopDefault(_philipBasnightCropPng);
 const imageAltText = "Philip Basnight";
 const Home = ({ name , title  }, props)=>{
-    const { linkedIn , email , gitHub ,  } = props;
+    const { linkedIn , email , gitHub  } = props;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         id: "home",
         className: "dark",
@@ -28772,13 +28872,13 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/PhilipBasnightCrop.png":"3gMho","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/down-arrow.svg":"b5nCi"}],"3gMho":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "PhilipBasnightCrop.a78d8383.png" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/down-arrow.svg":"b5nCi","prop-types":"7wKI2","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/PhilipBasnightCrop.png":"3gMho","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b5nCi":[function(require,module,exports) {
+module.exports = require("f31fa9236ffac6fa").getBundleURL("bLxZJ") + "down-arrow.1037091f.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"b5nCi":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "down-arrow.1037091f.svg" + "?" + Date.now();
+},{"f31fa9236ffac6fa":"lgJ39"}],"3gMho":[function(require,module,exports) {
+module.exports = require("6cfe0ba79188ebb2").getBundleURL("bLxZJ") + "PhilipBasnightCrop.a78d8383.png" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"lCaEt":[function(require,module,exports) {
+},{"6cfe0ba79188ebb2":"lgJ39"}],"lCaEt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ed0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -28828,7 +28928,7 @@ const projectList = [
         description: "Frontend website built with Vue, Vue Router, and the RAWG API",
         url: "https://github.com/jadlevine/gradebook-frontend",
         git: "https://github.com/jadlevine/gradebook-backend"
-    }, 
+    }
 ];
 const Portfolio = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -28952,9 +29052,9 @@ $RefreshReg$(_c, "Portfolio");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg":"i3wD2"}],"i3wD2":[function(require,module,exports) {
-module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.13241cbe.jpg" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg":"i3wD2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"i3wD2":[function(require,module,exports) {
+module.exports = require("823ebac346356fc6").getBundleURL("bLxZJ") + "desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.13241cbe.jpg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire6158")
+},{"823ebac346356fc6":"lgJ39"}],"lW6qc":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequire6158")
 
 //# sourceMappingURL=index.975ef6c8.js.map
