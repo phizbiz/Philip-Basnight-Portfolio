@@ -2902,17 +2902,23 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 /**
- * Entry point of application, where App is rendered within the div with the id of "app" 
- */ var _react = require("react");
+ * Entry point of application, where App is rendered within the div with the id of "app"
+ */ // import React from "react";
+// import { render } from "react-dom";
+// import App from "./App";
+// render(<App></App>, document.getElementById("app"));
+//reactdom update
+var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
+var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _app = require("./App");
 var _appDefault = parcelHelpers.interopDefault(_app);
-(0, _reactDom.render)(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
+(0, _reactDomDefault.default).createRoot(document.getElementById("app")).render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _appDefault.default), {}, void 0, false, {
     fileName: "src/index.js",
-    lineNumber: 10,
-    columnNumber: 8
-}, undefined), document.getElementById("app"));
+    lineNumber: 18,
+    columnNumber: 60
+}, undefined));
 
   $parcel$ReactRefreshHelpers$20e5.postlude(module);
 } finally {
