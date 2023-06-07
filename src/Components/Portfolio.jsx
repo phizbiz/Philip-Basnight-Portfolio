@@ -1,6 +1,6 @@
 import React from "react";
 
-// import image from "../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg"
+import image from "../images/desk-with-various-gadgets-and-office-supplies-computer-smart-phone-and-stationery-arou-SBI-305198813.jpg"
 
 
 const imageAltText = "desktop with books and laptop";

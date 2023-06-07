@@ -5,6 +5,7 @@
   "source": "src/index.html",
   "homepage": "http://phizbiz.github.io/Philip-Basnight-Portfolio",
   "scripts": {
+    "prestart": "rm -rf .cache/ dist/",
     "start": "parcel",
     "build": "parcel build",
     "build-gh": "parcel build --public-url 'https://phizbiz.github.io/Philip-Basnight-Portfolio'",
