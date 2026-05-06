@@ -1,57 +1,32 @@
-/**
- * About component
- *
- * Space for you to describe more about yourself.
- */
-
 import React from "react";
 
-/**
- * About background image
- *
- * Below is a sample image. Upload the image of your choice into the "images"
- * directory and import here for use. Then, set imageAltText to string that 
- * represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a image you
- * freely use on your site.
- */
-// import image from "../images/mosaic.svg";
 import image from "../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg";
-// import image from "../../dist/abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg";
 
-const imageAltText = "purple and blue abstract background";
+const imageAltText = "dark blue abstract background";
 
-/**
- * Sort description that expands on your title on the Home component.
- */
 const description =
-  "I am a creative, solutions-driven software developer with a passion for intuitive design and function. My previous experience as a touring musician and music industry professional has given me the skills to adapt as problems arise and landscapes evolve.  I am a lifelong learner committed to finding new solutions. I look forward to putting my skills to use in a fast-paced, entrepreneurial engineering environment.";
+  "Data Analyst at SoundExchange, where I work with royalties, metadata, and rights data for major publishing clients. Previously a Royalties Coordinator at SiriusXM. My background in the music industry gives me firsthand understanding of how complex data flows through rights and licensing ecosystems — the kind of domain expertise that turns raw numbers into decisions. I also hold a software engineering certificate from General Assembly, which means I can write the pipelines, query the databases, and collaborate directly with engineering teams.";
 
-/**
- * List of some of skills or technologies you work on, are learning,
- * passionate about, or enjoy,
- */
-const skillsList = [
-  "Software Engineering",
-  "HTML | CSS | Javascript",
-  "Python",
-  "Node.js",
-  "MogoDB",
-  "Mongoose",
-  "Vue",
+const dataSkills = [
   "SQL",
-  "PostgresSQL",
-  "Heroku"
+  "Python (pandas, numpy)",
+  "Data Visualization",
+  "Excel / Google Sheets",
+  "Metadata & Rights Management",
+  "Data Cleaning & Transformation",
 ];
 
-/**
- * Use this to give more information about what you are passionate about,
- * how you best work, or even a quote. This will help someone learn more
- * about you on a professional level.
- */
+const engineeringSkills = [
+  "JavaScript / React",
+  "Node.js / Express",
+  "MongoDB",
+  "HTML & CSS",
+  "Git / GitHub",
+  "REST APIs",
+];
+
 const detailOrQuote =
-  "TLDR: Touring musician turned software engineer";
+  "Royalties and rights data professional with the engineering background to own the full analytical workflow.";
 
 const About = () => {
   return (
@@ -60,30 +35,41 @@ const About = () => {
       <div
         style={{
           backgroundColor: "white",
-          width: "50%",
+          maxWidth: "700px",
+          width: "90%",
           padding: "4rem",
           margin: "3rem auto",
           textAlign: "center",
+          boxSizing: "border-box",
         }}
       >
-        <h2>About Myself</h2>
-        <p className="large">{description}</p>
+        <h2>About Me</h2>
+        <p className="large" style={{ textAlign: "left", marginTop: "1.5rem" }}>{description}</p>
         <hr />
-        <ul
-          style={{
-            textAlign: "left",
-            columns: 2,
-            fontSize: "1.25rem",
-            margin: "2rem 3rem",
-            gap: "3rem",
-          }}
-        >
-          {skillsList.map((skill) => (
-            <li key={skill}>{skill}</li>
-          ))}
-        </ul>
+        <div style={{ display: "flex", gap: "3rem", textAlign: "left", margin: "1.5rem 0" }}>
+          <div style={{ flex: 1 }}>
+            <h3 style={{ marginBottom: "0.75rem", color: "#4E567E", fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              Data &amp; Analytics
+            </h3>
+            <ul style={{ fontSize: "1rem", lineHeight: "1.9", paddingLeft: "1.2rem", margin: 0 }}>
+              {dataSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+          <div style={{ flex: 1 }}>
+            <h3 style={{ marginBottom: "0.75rem", color: "#4E567E", fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              Engineering &amp; Tools
+            </h3>
+            <ul style={{ fontSize: "1rem", lineHeight: "1.9", paddingLeft: "1.2rem", margin: 0 }}>
+              {engineeringSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <hr />
-        <p style={{ padding: "1rem 3rem 0" }}>{detailOrQuote}</p>
+        <p style={{ padding: "1rem 3rem 0", fontStyle: "italic" }}>{detailOrQuote}</p>
       </div>
     </section>
   );

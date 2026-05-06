@@ -103,20 +103,84 @@ a:hover {
 }
 
 .container {
-  margin: 20px auto;
+  margin: 2rem auto;
   display: grid;
-  grid-template-columns: 330px 300px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 20px;
+  max-width: 900px;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .container .box {
-  border-radius: 10px;
-  padding: 24px 16px;
+  border-radius: 8px;
+  padding: 1.5rem;
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
-  border: 1px solid rgb(204, 204, 204);
-  text-align: center;
+  border: 1px solid rgb(220, 220, 220);
+  text-align: left;
+}
+
+.category-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 0.6rem;
+  width: fit-content;
+}
+
+.badge-data {
+  background: #4E567E;
+  color: white;
+}
+
+.badge-eng {
+  background: #e8eaf0;
+  color: #4E567E;
+}
+
+.tools-line {
+  font-size: 13px;
+  color: #777;
+  margin: 0.5rem 0 0;
+  font-style: italic;
+}
+
+.project-desc {
+  flex: 1;
+  margin-top: 0.25rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.project-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4E567E;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+.in-dev {
+  font-size: 13px;
+  color: #999;
+  font-style: italic;
 }
 
 img.socialIcon {
@@ -124,12 +188,6 @@ img.socialIcon {
   height: 30px;
 }
 
-
-.portfolio-box{
-  font-size: 16px;
-  padding: 5px;
-}
-
-.homeSocials{
+.homeSocials {
   padding: 0px 3px 0px 3px;
 }

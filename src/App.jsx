@@ -25,7 +25,7 @@ import "./styles.css";
  */
 const siteProps = {
   name: "Philip Basnight",
-  title: "Software Engineer",
+  title: "Data Analyst",
   email: "philipbasnight@gmail.com",
   gitHub: "phizbiz",
   // instagram: "microsoft",
