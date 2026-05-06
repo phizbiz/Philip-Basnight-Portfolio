@@ -11,21 +11,21 @@ const projectList = [
     title: "Music Library",
     description:
       "Pairing music and video. MERN stack",
-    url: "https://royal-music-library.herokuapp.com/",
+    url: "https://royal-music-library.onrender.com/",
     git: "https://github.com/phizbiz/Capstone-Project",
   },
   {
     title: "Chord Progression Generator",
     description:
       "React App for dynamic generation, playback, and export of MIDI chords",
-    url: "https://dailychords.herokuapp.com/",
+    url: "https://new-chord-generator.vercel.app/",
     git: "https://github.com/phizbiz/new-chord-generator",
   },
   {
     title: "Rollercoaster Encyclopedia",
     description:
       "MERN stack rollercoaster website",
-    url: "https://young-cliffs-64362.herokuapp.com/",
+    url: "https://rollercoaster-project.onrender.com/",
     git: "https://github.com/phizbiz/rollercoaster-project",
   },
   {
@@ -38,7 +38,7 @@ const projectList = [
     title: "Music Blog",
     description:
       "Music review blog built with React",
-    url: "https://phizfork.herokuapp.com/",
+    url: "https://music-blog-ztkx.onrender.com/",
     git: "https://github.com/phizbiz/album_reviews",
   },
   {
