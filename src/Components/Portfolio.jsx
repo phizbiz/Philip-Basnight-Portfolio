@@ -5,7 +5,7 @@ const projectList = [
     title: "Music Rights Data Pipeline",
     category: "Data Analysis",
     description:
-      "Production Oracle PL/SQL package automating the matching of publisher catalogs against the MLC unclaimed mechanical royalty dataset (~168M recordings, ~33M works). Classifies share registration gaps — missing, underrepresented, and overclaimed — across multiple collection society sources. Scheduled monthly via DBMS_SCHEDULER.",
+      "Production Oracle PL/SQL package automating the matching of publisher catalogs against a central rights licensing database (~168M recordings, ~33M works). Classifies share registration gaps — missing, underrepresented, and overclaimed — across multiple rights partner sources. Scheduled monthly via DBMS_SCHEDULER.",
     tools: "Oracle PL/SQL · Dynamic SQL · CTEs · DBMS_SCHEDULER · DBMS_STATS",
     git: "https://github.com/phizbiz/music-rights-pipeline",
   },
