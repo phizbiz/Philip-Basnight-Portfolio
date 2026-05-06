@@ -2,13 +2,12 @@ import React from "react";
 
 const projectList = [
   {
-    title: "Streaming Royalty Revenue Trends",
+    title: "Music Rights Data Pipeline",
     category: "Data Analysis",
     description:
-      "Analysis of RIAA annual revenue data (2004–2024) to quantify how streaming has reshaped royalty distribution across formats. Surfaces per-stream rate trends, format-level revenue shifts, and implications for rights holders across publisher tiers.",
-    tools: "Python · pandas · matplotlib · seaborn · Jupyter",
-    git: "https://github.com/phizbiz/royalty-revenue-analysis",
-    status: "In Development",
+      "Production Oracle PL/SQL package automating the matching of publisher catalogs against the MLC unclaimed mechanical royalty dataset (~168M recordings, ~33M works). Classifies share registration gaps — missing, underrepresented, and overclaimed — across multiple collection society sources. Scheduled monthly via DBMS_SCHEDULER.",
+    tools: "Oracle PL/SQL · Dynamic SQL · CTEs · DBMS_SCHEDULER · DBMS_STATS",
+    git: "https://github.com/phizbiz/music-rights-pipeline",
   },
   {
     title: "U.S. Bank Financial Health Analysis",
