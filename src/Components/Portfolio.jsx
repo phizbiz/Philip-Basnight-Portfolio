@@ -13,10 +13,9 @@ const projectList = [
     title: "U.S. Bank Financial Health Analysis",
     category: "Data Analysis",
     description:
-      "SQL analysis of FDIC call report data across thousands of U.S. commercial banks. Identifies financial indicators — capital ratios, net interest margins, loan performance — that distinguish high-performing institutions by size tier.",
-    tools: "SQL · Python · pandas · FDIC Public Dataset",
+      "Python and SQL analysis of FDIC call report data across ~4,500 U.S. commercial banks (2019–2023). Covers tier-based performance benchmarking, NIM response to Fed rate hikes, state-level ROA rankings, stress signal detection, and within-tier ranking via SQL window functions.",
+    tools: "Python · pandas · SQLite · SQL · matplotlib · seaborn · FDIC Public API",
     git: "https://github.com/phizbiz/bank-financial-analysis",
-    status: "In Development",
   },
   {
     title: "Music Catalog & Rights Database",
