@@ -27277,21 +27277,13 @@ const About = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    backgroundColor: "white",
-                    maxWidth: "700px",
-                    width: "90%",
-                    padding: "4rem",
-                    margin: "3rem auto",
-                    textAlign: "center",
-                    boxSizing: "border-box"
-                },
+                className: "about-card",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                         children: "About Me"
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 46,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27303,21 +27295,16 @@ const About = ()=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 47,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 48,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        style: {
-                            display: "flex",
-                            gap: "3rem",
-                            textAlign: "left",
-                            margin: "1.5rem 0"
-                        },
+                        className: "skills-grid",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 style: {
@@ -27335,7 +27322,7 @@ const About = ()=>{
                                         children: "Data & Analytics"
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 51,
+                                        lineNumber: 41,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -27349,18 +27336,18 @@ const About = ()=>{
                                                 children: skill
                                             }, skill, false, {
                                                 fileName: "src/Components/About.jsx",
-                                                lineNumber: 56,
+                                                lineNumber: 46,
                                                 columnNumber: 17
                                             }, undefined))
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 44,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 50,
+                                lineNumber: 40,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27379,7 +27366,7 @@ const About = ()=>{
                                         children: "Engineering & Tools"
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 61,
+                                        lineNumber: 51,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -27393,40 +27380,37 @@ const About = ()=>{
                                                 children: skill
                                             }, skill, false, {
                                                 fileName: "src/Components/About.jsx",
-                                                lineNumber: 66,
+                                                lineNumber: 56,
                                                 columnNumber: 17
                                             }, undefined))
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 64,
+                                        lineNumber: 54,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 60,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 49,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 71,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        style: {
-                            padding: "1rem 3rem 0",
-                            fontStyle: "italic"
-                        },
+                        className: "about-tagline",
                         children: detailOrQuote
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 72,
+                        lineNumber: 62,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -28783,8 +28767,6 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _downArrowSvg = require("../images/down-arrow.svg");
-var _downArrowSvgDefault = parcelHelpers.interopDefault(_downArrowSvg);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _linkedinSvg = require("../images/socials/linkedin.svg");
@@ -28796,8 +28778,7 @@ var _githubSvgDefault = parcelHelpers.interopDefault(_githubSvg);
 var _philipBasnightCropPng = require("../images/PhilipBasnightCrop.png");
 var _philipBasnightCropPngDefault = parcelHelpers.interopDefault(_philipBasnightCropPng);
 const imageAltText = "Philip Basnight";
-const Home = ({ name , title  }, props)=>{
-    const { linkedIn , email , gitHub  } = props;
+const Home = ({ name , title  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         id: "home",
         className: "dark",
@@ -28805,118 +28786,104 @@ const Home = ({ name , title  }, props)=>{
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "background",
                 src: (0, _philipBasnightCropPngDefault.default),
-                alt: ""
+                alt: imageAltText
             }, void 0, false, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 22,
+                lineNumber: 13,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                style: {
-                    position: "absolute",
-                    top: "30%",
-                    left: "2rem"
-                },
+                className: "hero-text",
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                         children: name
                     }, void 0, false, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 24,
+                        lineNumber: 15,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        className: "hero-title",
+                        children: title
+                    }, void 0, false, {
+                        fileName: "src/Components/Home.jsx",
+                        lineNumber: 16,
+                        columnNumber: 9
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "hero-socials",
                         children: [
-                            title,
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                href: "https://github.com/phizbiz",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: "homeSocials",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _githubSvgDefault.default),
+                                    alt: "GitHub",
+                                    className: "socialIcon"
+                                }, void 0, false, {
+                                    fileName: "src/Components/Home.jsx",
+                                    lineNumber: 19,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 26,
-                                columnNumber: 9
+                                lineNumber: 18,
+                                columnNumber: 11
                             }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        href: `https://github.com/phizbiz`,
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        className: "homeSocials",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: (0, _githubSvgDefault.default),
-                                            alt: "GitHub",
-                                            className: "socialIcon"
-                                        }, void 0, false, {
-                                            fileName: "src/Components/Home.jsx",
-                                            lineNumber: 29,
-                                            columnNumber: 13
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/Components/Home.jsx",
-                                        lineNumber: 28,
-                                        columnNumber: 9
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        href: `https://www.linkedin.com/in/philip-basnight`,
-                                        target: "_blank",
-                                        rel: "noopener noreferrer",
-                                        className: "homeSocials",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: (0, _linkedinSvgDefault.default),
-                                            alt: "LinkedIn",
-                                            className: "socialIcon"
-                                        }, void 0, false, {
-                                            fileName: "src/Components/Home.jsx",
-                                            lineNumber: 37,
-                                            columnNumber: 13
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/Components/Home.jsx",
-                                        lineNumber: 31,
-                                        columnNumber: 11
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                        href: `mailto:philipbasnight@gmail.com`,
-                                        className: "homeSocials",
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            src: (0, _envelopeSvgDefault.default),
-                                            alt: "email",
-                                            className: "socialIcon"
-                                        }, void 0, false, {
-                                            fileName: "src/Components/Home.jsx",
-                                            lineNumber: 40,
-                                            columnNumber: 13
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/Components/Home.jsx",
-                                        lineNumber: 39,
-                                        columnNumber: 11
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                href: "https://www.linkedin.com/in/philip-basnight",
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: "homeSocials",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _linkedinSvgDefault.default),
+                                    alt: "LinkedIn",
+                                    className: "socialIcon"
+                                }, void 0, false, {
+                                    fileName: "src/Components/Home.jsx",
+                                    lineNumber: 22,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 27,
-                                columnNumber: 9
+                                lineNumber: 21,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                href: "mailto:philipbasnight@gmail.com",
+                                className: "homeSocials",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    src: (0, _envelopeSvgDefault.default),
+                                    alt: "email",
+                                    className: "socialIcon"
+                                }, void 0, false, {
+                                    fileName: "src/Components/Home.jsx",
+                                    lineNumber: 25,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/Components/Home.jsx",
+                                lineNumber: 24,
+                                columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/Home.jsx",
-                        lineNumber: 25,
+                        lineNumber: 17,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Home.jsx",
-                lineNumber: 23,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-                fileName: "src/Components/Home.jsx",
-                lineNumber: 46,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Home.jsx",
-        lineNumber: 21,
+        lineNumber: 12,
         columnNumber: 5
     }, undefined);
 };
@@ -28927,10 +28894,7 @@ Home.defaultProps = {
 };
 Home.propTypes = {
     name: (0, _propTypesDefault.default).string.isRequired,
-    title: (0, _propTypesDefault.default).string.isRequired,
-    linkedIn: (0, _propTypesDefault.default).string,
-    email: (0, _propTypesDefault.default).string,
-    gitHub: (0, _propTypesDefault.default).string
+    title: (0, _propTypesDefault.default).string.isRequired
 };
 exports.default = Home;
 var _c;
@@ -28941,10 +28905,7 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/down-arrow.svg":"b5nCi","prop-types":"7wKI2","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/PhilipBasnightCrop.png":"3gMho","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"b5nCi":[function(require,module,exports) {
-module.exports = require("f31fa9236ffac6fa").getBundleURL("bLxZJ") + "down-arrow.1037091f.svg" + "?" + Date.now();
-
-},{"f31fa9236ffac6fa":"lgJ39"}],"3gMho":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/PhilipBasnightCrop.png":"3gMho","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3gMho":[function(require,module,exports) {
 module.exports = require("6cfe0ba79188ebb2").getBundleURL("bLxZJ") + "PhilipBasnightCrop.a78d8383.png" + "?" + Date.now();
 
 },{"6cfe0ba79188ebb2":"lgJ39"}],"lCaEt":[function(require,module,exports) {

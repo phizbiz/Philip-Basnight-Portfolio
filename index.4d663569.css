@@ -32,12 +32,12 @@ section img.background {
   z-index: -1;
   pointer-events: none;
   object-fit: cover;
-  width: 100vmax;
+  object-position: center top;
+  width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translate(-50%);
+  left: 0;
 }
 
 h1 {
@@ -94,6 +94,56 @@ a {
 
 a:hover {
   color: #4e567e;
+}
+
+.hero-text {
+  position: absolute;
+  top: 30%;
+  left: 2rem;
+}
+
+.hero-title {
+  text-align: left;
+  margin: .5rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.hero-socials {
+  gap: 6px;
+  margin-top: .75rem;
+  display: flex;
+}
+
+.homeSocials {
+  padding: 0 3px;
+}
+
+img.socialIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.about-card {
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 90%;
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 4rem;
+}
+
+.skills-grid {
+  text-align: left;
+  gap: 3rem;
+  margin: 1.5rem 0;
+  display: flex;
+}
+
+.about-tagline {
+  padding: 1rem 3rem 0;
+  font-style: italic;
 }
 
 .container {
@@ -178,13 +228,83 @@ a:hover {
   font-style: italic;
 }
 
-img.socialIcon {
-  width: 30px;
-  height: 30px;
+@media (width <= 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p.large {
+    font-size: 18px;
+  }
+
+  section.light {
+    padding: 4rem 0;
+  }
+
+  .about-card {
+    width: 92%;
+    margin: 2rem auto;
+    padding: 2.5rem 2rem;
+  }
+
+  .about-tagline {
+    padding: 1rem 0 0;
+  }
+
+  hr {
+    margin: 1.5rem;
+  }
 }
 
-.homeSocials {
-  padding: 0 3px;
+@media (width <= 480px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-text {
+    top: 25%;
+    left: 1.25rem;
+  }
+
+  section.light {
+    padding: 3rem 0;
+  }
+
+  .about-card {
+    width: 94%;
+    margin: 1.5rem auto;
+    padding: 2rem 1.25rem;
+  }
+
+  .skills-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-tagline {
+    padding: 1rem 0 0;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  p.large {
+    font-size: 16px;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
 
 /*# sourceMappingURL=index.4d663569.css.map */
