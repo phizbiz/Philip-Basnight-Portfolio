@@ -32,21 +32,11 @@ const About = () => {
   return (
     <section className="light" id="about">
       <img className="background" src={image} alt={imageAltText} />
-      <div
-        style={{
-          backgroundColor: "white",
-          maxWidth: "700px",
-          width: "90%",
-          padding: "4rem",
-          margin: "3rem auto",
-          textAlign: "center",
-          boxSizing: "border-box",
-        }}
-      >
+      <div className="about-card">
         <h2>About Me</h2>
         <p className="large" style={{ textAlign: "left", marginTop: "1.5rem" }}>{description}</p>
         <hr />
-        <div style={{ display: "flex", gap: "3rem", textAlign: "left", margin: "1.5rem 0" }}>
+        <div className="skills-grid">
           <div style={{ flex: 1 }}>
             <h3 style={{ marginBottom: "0.75rem", color: "#4E567E", fontSize: "1rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
               Data &amp; Analytics
@@ -69,7 +59,7 @@ const About = () => {
           </div>
         </div>
         <hr />
-        <p style={{ padding: "1rem 3rem 0", fontStyle: "italic" }}>{detailOrQuote}</p>
+        <p className="about-tagline">{detailOrQuote}</p>
       </div>
     </section>
   );
