@@ -28929,6 +28929,13 @@ const projectList = [
         git: "https://github.com/phizbiz/music-rights-pipeline"
     },
     {
+        title: "Music Streaming Royalty QA Pipeline",
+        category: "Data Analysis",
+        description: "SQL QA and reconciliation pipeline for a music streaming royalty distribution system. Validates statement totals against line-item sums using correlated subqueries, flags publisher- and work-level discrepancies, compares quarter-over-quarter amounts via CTE self-joins, and produces per-play-rate pool summaries with pro-rata licensor share calculations and multi-territory currency conversion.",
+        tools: "Oracle SQL \xb7 CTEs \xb7 Correlated Subqueries \xb7 Window Functions \xb7 Multi-schema Joins \xb7 Currency Conversion",
+        git: "https://github.com/phizbiz/music-royalty-qa-pipeline"
+    },
+    {
         title: "U.S. Bank Financial Health Analysis",
         category: "Data Analysis",
         description: "Python and SQL analysis of FDIC call report data across ~4,500 U.S. commercial banks (2019–2023). Covers tier-based performance benchmarking, NIM response to Fed rate hikes, state-level ROA rankings, stress signal detection, and within-tier ranking via SQL window functions.",
@@ -28942,6 +28949,14 @@ const projectList = [
         tools: "MongoDB \xb7 Express \xb7 React \xb7 Node.js",
         url: "https://royal-music-library.onrender.com/",
         git: "https://github.com/phizbiz/Capstone-Project"
+    },
+    {
+        title: "Album Review Blog",
+        category: "Full Stack",
+        description: "Full-stack music review platform for browsing, creating, and managing album reviews. Features a REST API backend with full CRUD, Mongoose schema modeling, and a React frontend with form handling and client-side state management.",
+        tools: "MongoDB \xb7 Express \xb7 React \xb7 Node.js",
+        url: "https://music-blog-ztkx.onrender.com",
+        git: "https://github.com/phizbiz/album_reviews"
     },
     {
         title: "Chord Progression Generator",
@@ -28961,7 +28976,7 @@ const Portfolio = ()=>{
                 children: "Portfolio"
             }, void 0, false, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 43,
+                lineNumber: 60,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28974,7 +28989,7 @@ const Portfolio = ()=>{
                                 children: project.category
                             }, void 0, false, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 47,
+                                lineNumber: 64,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
@@ -28984,7 +28999,7 @@ const Portfolio = ()=>{
                                 children: project.title
                             }, void 0, false, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 50,
+                                lineNumber: 67,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28992,7 +29007,7 @@ const Portfolio = ()=>{
                                 children: project.description
                             }, void 0, false, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 51,
+                                lineNumber: 68,
                                 columnNumber: 13
                             }, undefined),
                             project.tools && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -29000,7 +29015,7 @@ const Portfolio = ()=>{
                                 children: project.tools
                             }, void 0, false, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 52,
+                                lineNumber: 69,
                                 columnNumber: 31
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -29011,7 +29026,7 @@ const Portfolio = ()=>{
                                         children: project.status
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 55,
+                                        lineNumber: 72,
                                         columnNumber: 17
                                     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                                         children: [
@@ -29022,7 +29037,7 @@ const Portfolio = ()=>{
                                                 children: "View Site"
                                             }, void 0, false, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 59,
+                                                lineNumber: 76,
                                                 columnNumber: 21
                                             }, undefined),
                                             project.git && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -29032,7 +29047,7 @@ const Portfolio = ()=>{
                                                 children: "View GitHub"
                                             }, void 0, false, {
                                                 fileName: "src/Components/Portfolio.jsx",
-                                                lineNumber: 64,
+                                                lineNumber: 81,
                                                 columnNumber: 21
                                             }, undefined)
                                         ]
@@ -29044,30 +29059,30 @@ const Portfolio = ()=>{
                                         children: "View GitHub"
                                     }, void 0, false, {
                                         fileName: "src/Components/Portfolio.jsx",
-                                        lineNumber: 71,
+                                        lineNumber: 88,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/Portfolio.jsx",
-                                lineNumber: 53,
+                                lineNumber: 70,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, project.title, true, {
                         fileName: "src/Components/Portfolio.jsx",
-                        lineNumber: 46,
+                        lineNumber: 63,
                         columnNumber: 11
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/Portfolio.jsx",
-                lineNumber: 44,
+                lineNumber: 61,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Portfolio.jsx",
-        lineNumber: 42,
+        lineNumber: 59,
         columnNumber: 5
     }, undefined);
 };
