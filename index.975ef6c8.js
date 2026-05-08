@@ -28953,8 +28953,8 @@ const projectList = [
     {
         title: "Album Review Blog",
         category: "Full Stack",
-        description: "Full-stack music review platform for browsing, creating, and managing album reviews. Features a REST API backend with full CRUD, Mongoose schema modeling, and a React frontend with form handling and client-side state management.",
-        tools: "MongoDB \xb7 Express \xb7 React \xb7 Node.js",
+        description: "Full-stack music review platform with JWT authentication, dedicated album detail pages, and a 0.0–10.0 rating system. Reviews are tied to albums and gated behind login. Features a dark UI with a blurred hero, color-coded scores, and a real-time average rating display.",
+        tools: "MongoDB \xb7 Express \xb7 React \xb7 Node.js \xb7 JWT \xb7 bcrypt",
         url: "https://music-blog-ztkx.onrender.com",
         git: "https://github.com/phizbiz/album_reviews"
     },
