@@ -27244,7 +27244,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg = require("../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg");
 var _abstractDarkBlueBrokenTilesBackgroundSBI300875744JpgDefault = parcelHelpers.interopDefault(_abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg);
 const imageAltText = "dark blue abstract background";
-const description = "Data Analyst at SoundExchange, where I work with royalties, metadata, and rights data for major publishing clients. Previously a Royalties Coordinator at SiriusXM. My background in the music industry gives me firsthand understanding of how complex data flows through rights and licensing ecosystems — the kind of domain expertise that turns raw numbers into decisions. I also hold a software engineering certificate from General Assembly, which means I can write the pipelines, query the databases, and collaborate directly with engineering teams.";
+const description = "I'm a Data Analyst at SoundExchange, where I work with royalties, metadata, and rights data for major publishing clients. Before that I was a Royalties Coordinator at SiriusXM. Years of working inside the music industry have given me a real feel for how rights and licensing data works, where it comes from, and what it means. I also completed a software engineering program at General Assembly, so I can write pipelines, query databases, and work directly with engineering teams alongside the analytical side of the job.";
 const dataSkills = [
     "SQL",
     "Python (pandas, numpy)",
