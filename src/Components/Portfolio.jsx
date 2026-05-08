@@ -10,6 +10,14 @@ const projectList = [
     git: "https://github.com/phizbiz/music-rights-pipeline",
   },
   {
+    title: "Music Streaming Royalty QA Pipeline",
+    category: "Data Analysis",
+    description:
+      "SQL QA and reconciliation pipeline for a music streaming royalty distribution system. Validates statement totals against line-item sums using correlated subqueries, flags publisher- and work-level discrepancies, compares quarter-over-quarter amounts via CTE self-joins, and produces per-play-rate pool summaries with pro-rata licensor share calculations and multi-territory currency conversion.",
+    tools: "Oracle SQL · CTEs · Correlated Subqueries · Window Functions · Multi-schema Joins · Currency Conversion",
+    git: "https://github.com/phizbiz/music-royalty-qa-pipeline",
+  },
+  {
     title: "U.S. Bank Financial Health Analysis",
     category: "Data Analysis",
     description:
@@ -25,6 +33,15 @@ const projectList = [
     tools: "MongoDB · Express · React · Node.js",
     url: "https://royal-music-library.onrender.com/",
     git: "https://github.com/phizbiz/Capstone-Project",
+  },
+  {
+    title: "Album Review Blog",
+    category: "Full Stack",
+    description:
+      "Full-stack music review platform for browsing, creating, and managing album reviews. Features a REST API backend with full CRUD, Mongoose schema modeling, and a React frontend with form handling and client-side state management.",
+    tools: "MongoDB · Express · React · Node.js",
+    url: "https://music-blog-ztkx.onrender.com",
+    git: "https://github.com/phizbiz/album_reviews",
   },
   {
     title: "Chord Progression Generator",
