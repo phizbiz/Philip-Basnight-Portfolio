@@ -28598,53 +28598,113 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const navItems = [
+    "home",
+    "portfolio",
+    "music",
+    "about",
+    "contact"
+];
 const Header = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        style: {
-            position: "fixed",
-            display: "flex",
-            justifyContent: "center",
-            gap: "2.5rem",
-            background: "rgba(12, 12, 12, 0.85)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
-            borderBottom: "1px solid #242424",
-            padding: "1rem",
-            top: 0,
-            width: "100vw",
-            zIndex: 10,
-            boxSizing: "border-box"
-        },
+    _s();
+    const [open, setOpen] = (0, _react.useState)(false);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("header", {
+        className: "site-header",
         children: [
-            "home",
-            "portfolio",
-            "music",
-            "about",
-            "contact"
-        ].map((id)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: `#${id}`,
-                style: {
-                    fontSize: "0.65rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    color: "#888",
-                    fontFamily: "Montserrat, sans-serif"
-                },
-                onMouseEnter: (e)=>e.target.style.color = "#e8e6e1",
-                onMouseLeave: (e)=>e.target.style.color = "#888",
-                children: id
-            }, id, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+                className: "nav-desktop",
+                children: navItems.map((id)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                        href: `#${id}`,
+                        className: "nav-link",
+                        children: id
+                    }, id, false, {
+                        fileName: "src/Components/Header.jsx",
+                        lineNumber: 12,
+                        columnNumber: 11
+                    }, undefined))
+            }, void 0, false, {
                 fileName: "src/Components/Header.jsx",
-                lineNumber: 23,
-                columnNumber: 9
-            }, undefined))
-    }, void 0, false, {
+                lineNumber: 10,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "nav-mobile",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                        className: "nav-toggle",
+                        onClick: ()=>setOpen(!open),
+                        "aria-label": "Toggle navigation",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "nav-toggle-label",
+                                children: open ? "Close" : "Menu"
+                            }, void 0, false, {
+                                fileName: "src/Components/Header.jsx",
+                                lineNumber: 18,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: `nav-hamburger ${open ? "is-open" : ""}`,
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {}, void 0, false, {
+                                        fileName: "src/Components/Header.jsx",
+                                        lineNumber: 20,
+                                        columnNumber: 13
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {}, void 0, false, {
+                                        fileName: "src/Components/Header.jsx",
+                                        lineNumber: 20,
+                                        columnNumber: 21
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {}, void 0, false, {
+                                        fileName: "src/Components/Header.jsx",
+                                        lineNumber: 20,
+                                        columnNumber: 29
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/Header.jsx",
+                                lineNumber: 19,
+                                columnNumber: 11
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/Components/Header.jsx",
+                        lineNumber: 17,
+                        columnNumber: 9
+                    }, undefined),
+                    open && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "nav-drawer",
+                        children: navItems.map((id)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                href: `#${id}`,
+                                className: "nav-drawer-link",
+                                onClick: ()=>setOpen(false),
+                                children: id
+                            }, id, false, {
+                                fileName: "src/Components/Header.jsx",
+                                lineNumber: 26,
+                                columnNumber: 15
+                            }, undefined))
+                    }, void 0, false, {
+                        fileName: "src/Components/Header.jsx",
+                        lineNumber: 24,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/Components/Header.jsx",
+                lineNumber: 16,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/Components/Header.jsx",
-        lineNumber: 5,
+        lineNumber: 9,
         columnNumber: 5
     }, undefined);
 };
+_s(Header, "xG1TONbKtDWtdOTrXaTAsNhPg/Q=");
 _c = Header;
 exports.default = Header;
 var _c;
