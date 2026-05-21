@@ -27155,6 +27155,8 @@ var _header = require("./Components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
 var _home = require("./Components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
+var _musicProfile = require("./Components/MusicProfile");
+var _musicProfileDefault = parcelHelpers.interopDefault(_musicProfile);
 var _portfolio = require("./Components/Portfolio");
 var _portfolioDefault = parcelHelpers.interopDefault(_portfolio);
 var _stylesCss = require("./styles.css");
@@ -27182,7 +27184,7 @@ const App = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 44,
+                lineNumber: 45,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {
@@ -27190,17 +27192,22 @@ const App = ()=>{
                 title: siteProps.title
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 45,
+                lineNumber: 46,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _portfolioDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 46,
+                lineNumber: 47,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _musicProfileDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 47,
+                lineNumber: 49,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {
@@ -27209,13 +27216,13 @@ const App = ()=>{
                 secondaryColor: secondaryColor
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 48,
+                lineNumber: 50,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.jsx",
-        lineNumber: 43,
+        lineNumber: 44,
         columnNumber: 5
     }, undefined);
 };
@@ -27229,7 +27236,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kouZu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Components/MusicProfile":"7hXXd"}],"kouZu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$17a8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27241,9 +27248,6 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg = require("../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg");
-var _abstractDarkBlueBrokenTilesBackgroundSBI300875744JpgDefault = parcelHelpers.interopDefault(_abstractDarkBlueBrokenTilesBackgroundSBI300875744Jpg);
-const imageAltText = "dark blue abstract background";
 const description = "I'm a Data Analyst at SoundExchange, where I work with royalties, metadata, and rights data for major publishing clients. Before that I was a Royalties Coordinator at SiriusXM. Years of working inside the music industry have given me a real feel for how rights and licensing data works, where it comes from, and what it means. I also completed a software engineering program at General Assembly, so I can write pipelines, query databases, and work directly with engineering teams alongside the analytical side of the job.";
 const dataSkills = [
     "SQL",
@@ -27264,43 +27268,32 @@ const engineeringSkills = [
 const detailOrQuote = "Royalties and rights data professional with the engineering background to own the full analytical workflow.";
 const About = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-        className: "light",
         id: "about",
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "background",
-                src: (0, _abstractDarkBlueBrokenTilesBackgroundSBI300875744JpgDefault.default),
-                alt: imageAltText
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "About"
             }, void 0, false, {
                 fileName: "src/Components/About.jsx",
-                lineNumber: 34,
+                lineNumber: 30,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "about-card",
                 children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: "About Me"
-                    }, void 0, false, {
-                        fileName: "src/Components/About.jsx",
-                        lineNumber: 36,
-                        columnNumber: 9
-                    }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "large",
                         style: {
-                            textAlign: "left",
-                            marginTop: "1.5rem"
+                            color: "#e8e6e1"
                         },
                         children: description
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 37,
+                        lineNumber: 32,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 38,
+                        lineNumber: 33,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27314,20 +27307,21 @@ const About = ()=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                         style: {
                                             marginBottom: "0.75rem",
-                                            color: "#4E567E",
-                                            fontSize: "1rem",
+                                            color: "#8b93c8",
+                                            fontSize: "0.65rem",
                                             textTransform: "uppercase",
-                                            letterSpacing: "0.06em"
+                                            letterSpacing: "0.15em",
+                                            fontWeight: 700
                                         },
                                         children: "Data & Analytics"
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 41,
+                                        lineNumber: 36,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                                         style: {
-                                            fontSize: "1rem",
+                                            fontSize: "13px",
                                             lineHeight: "1.9",
                                             paddingLeft: "1.2rem",
                                             margin: 0
@@ -27336,18 +27330,18 @@ const About = ()=>{
                                                 children: skill
                                             }, skill, false, {
                                                 fileName: "src/Components/About.jsx",
-                                                lineNumber: 46,
+                                                lineNumber: 41,
                                                 columnNumber: 17
                                             }, undefined))
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 44,
+                                        lineNumber: 39,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 40,
+                                lineNumber: 35,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27358,20 +27352,21 @@ const About = ()=>{
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                         style: {
                                             marginBottom: "0.75rem",
-                                            color: "#4E567E",
-                                            fontSize: "1rem",
+                                            color: "#8b93c8",
+                                            fontSize: "0.65rem",
                                             textTransform: "uppercase",
-                                            letterSpacing: "0.06em"
+                                            letterSpacing: "0.15em",
+                                            fontWeight: 700
                                         },
                                         children: "Engineering & Tools"
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 51,
+                                        lineNumber: 46,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                                         style: {
-                                            fontSize: "1rem",
+                                            fontSize: "13px",
                                             lineHeight: "1.9",
                                             paddingLeft: "1.2rem",
                                             margin: 0
@@ -27380,29 +27375,29 @@ const About = ()=>{
                                                 children: skill
                                             }, skill, false, {
                                                 fileName: "src/Components/About.jsx",
-                                                lineNumber: 56,
+                                                lineNumber: 51,
                                                 columnNumber: 17
                                             }, undefined))
                                     }, void 0, false, {
                                         fileName: "src/Components/About.jsx",
-                                        lineNumber: 54,
+                                        lineNumber: 49,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 50,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 39,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 61,
+                        lineNumber: 56,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27410,19 +27405,19 @@ const About = ()=>{
                         children: detailOrQuote
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 62,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/About.jsx",
-                lineNumber: 35,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/About.jsx",
-        lineNumber: 33,
+        lineNumber: 29,
         columnNumber: 5
     }, undefined);
 };
@@ -27436,45 +27431,7 @@ $RefreshReg$(_c, "About");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/abstract-dark-blue-broken-tiles-background-SBI-300875744.jpg":"im5gn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"im5gn":[function(require,module,exports) {
-module.exports = require("e3e482d554751f83").getBundleURL("bLxZJ") + "abstract-dark-blue-broken-tiles-background-SBI-300875744.56a437af.jpg" + "?" + Date.now();
-
-},{"e3e482d554751f83":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"gkKU3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27649,236 +27606,173 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$8b43.prelude(module);
 
 try {
-/**
- * Footer component
- *
- * Displays avenues to contact you.
- * Contact information is passed in from the App component that
- * renders the Footer.
- *
- * If a social value has an empty string it will not be displayed.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _devdottoSvg = require("../images/socials/devdotto.svg");
-var _devdottoSvgDefault = parcelHelpers.interopDefault(_devdottoSvg);
 var _envelopeSvg = require("../images/socials/envelope.svg");
 var _envelopeSvgDefault = parcelHelpers.interopDefault(_envelopeSvg);
 var _githubSvg = require("../images/socials/github.svg");
 var _githubSvgDefault = parcelHelpers.interopDefault(_githubSvg);
-var _instagramSvg = require("../images/socials/instagram.svg");
-var _instagramSvgDefault = parcelHelpers.interopDefault(_instagramSvg);
 var _linkedinSvg = require("../images/socials/linkedin.svg");
 var _linkedinSvgDefault = parcelHelpers.interopDefault(_linkedinSvg);
-// import mediumIcon from "../images/socials/medium.svg";
-var _twitterSvg = require("../images/socials/twitter.svg");
-var _twitterSvgDefault = parcelHelpers.interopDefault(_twitterSvg);
-var _youtubeSvg = require("../images/socials/youtube.svg");
-var _youtubeSvgDefault = parcelHelpers.interopDefault(_youtubeSvg);
-/**
- * 💡 Learning resources
- *
- *  HTML hyperlinks: https://www.w3schools.com/html/html_links.asp
- *  Opening links in new tabs: https://www.freecodecamp.org/news/how-to-use-html-to-open-link-in-new-tab/
- */ const Footer = (props)=>{
-    const { devDotTo , email , gitHub , instagram , linkedIn , medium , name , primaryColor , twitter , youTube  } = props;
+const Footer = ({ name , email , gitHub , linkedIn  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         id: "contact",
         style: {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: "2.5rem",
+            gap: "2rem",
             padding: "5rem 0 3rem",
-            backgroundColor: primaryColor
+            borderTop: "1px solid #242424"
         },
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                 style: {
-                    marginTop: 0,
-                    color: "white"
+                    fontSize: "0.65rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: "#8b93c8",
+                    margin: 0
                 },
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: "Contact:"
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 55,
-                        columnNumber: 52
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        children: "philipbasnight@gmail.com"
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 56,
-                        columnNumber: 5
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                children: "Contact"
+            }, void 0, false, {
                 fileName: "src/Components/Footer.jsx",
-                lineNumber: 55,
-                columnNumber: 6
+                lineNumber: 21,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                style: {
+                    color: "#888",
+                    margin: 0,
+                    fontSize: "14px"
+                },
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                    href: `mailto:${email}`,
+                    style: {
+                        color: "#888"
+                    },
+                    onMouseEnter: (e)=>e.target.style.color = "#e8e6e1",
+                    onMouseLeave: (e)=>e.target.style.color = "#888",
+                    children: email
+                }, void 0, false, {
+                    fileName: "src/Components/Footer.jsx",
+                    lineNumber: 25,
+                    columnNumber: 9
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/Footer.jsx",
+                lineNumber: 24,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 style: {
                     display: "flex",
-                    justifyContent: "center",
-                    gap: "2.5rem"
+                    gap: "1.5rem"
                 },
                 children: [
                     email && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                         href: `mailto:${email}`,
+                        style: {
+                            opacity: 0.45,
+                            transition: "opacity 0.2s"
+                        },
+                        onMouseEnter: (e)=>e.currentTarget.style.opacity = 1,
+                        onMouseLeave: (e)=>e.currentTarget.style.opacity = 0.45,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: (0, _envelopeSvgDefault.default),
                             alt: "email",
                             className: "socialIcon"
                         }, void 0, false, {
                             fileName: "src/Components/Footer.jsx",
-                            lineNumber: 66,
+                            lineNumber: 34,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/Footer.jsx",
-                        lineNumber: 65,
-                        columnNumber: 11
-                    }, undefined),
-                    devDotTo && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: `https://dev.to/${devDotTo}`,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _devdottoSvgDefault.default),
-                            alt: "Dev.to",
-                            className: "socialIcon"
-                        }, void 0, false, {
-                            fileName: "src/Components/Footer.jsx",
-                            lineNumber: 71,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 70,
+                        lineNumber: 31,
                         columnNumber: 11
                     }, undefined),
                     gitHub && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                         href: `https://github.com/${gitHub}`,
                         target: "_blank",
                         rel: "noopener noreferrer",
+                        style: {
+                            opacity: 0.45,
+                            transition: "opacity 0.2s"
+                        },
+                        onMouseEnter: (e)=>e.currentTarget.style.opacity = 1,
+                        onMouseLeave: (e)=>e.currentTarget.style.opacity = 0.45,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: (0, _githubSvgDefault.default),
                             alt: "GitHub",
                             className: "socialIcon"
                         }, void 0, false, {
                             fileName: "src/Components/Footer.jsx",
-                            lineNumber: 76,
+                            lineNumber: 42,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/Footer.jsx",
-                        lineNumber: 75,
-                        columnNumber: 11
-                    }, undefined),
-                    instagram && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: `https://www.instagram.com/${instagram}`,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _instagramSvgDefault.default),
-                            alt: "Instagram",
-                            className: "socialIcon"
-                        }, void 0, false, {
-                            fileName: "src/Components/Footer.jsx",
-                            lineNumber: 85,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 80,
+                        lineNumber: 38,
                         columnNumber: 11
                     }, undefined),
                     linkedIn && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                         href: `https://www.linkedin.com/in/${linkedIn}`,
                         target: "_blank",
                         rel: "noopener noreferrer",
+                        style: {
+                            opacity: 0.45,
+                            transition: "opacity 0.2s"
+                        },
+                        onMouseEnter: (e)=>e.currentTarget.style.opacity = 1,
+                        onMouseLeave: (e)=>e.currentTarget.style.opacity = 0.45,
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                             src: (0, _linkedinSvgDefault.default),
                             alt: "LinkedIn",
                             className: "socialIcon"
                         }, void 0, false, {
                             fileName: "src/Components/Footer.jsx",
-                            lineNumber: 94,
+                            lineNumber: 50,
                             columnNumber: 13
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/Components/Footer.jsx",
-                        lineNumber: 89,
-                        columnNumber: 11
-                    }, undefined),
-                    twitter && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: `https://twitter.com/${twitter}`,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _twitterSvgDefault.default),
-                            alt: "Twitter",
-                            className: "socialIcon"
-                        }, void 0, false, {
-                            fileName: "src/Components/Footer.jsx",
-                            lineNumber: 100,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 99,
-                        columnNumber: 11
-                    }, undefined),
-                    youTube && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: `https://www.youtube.com/c/${youTube}`,
-                        target: "_blank",
-                        rel: "noopener noreferrer",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            src: (0, _youtubeSvgDefault.default),
-                            alt: "YouTube",
-                            className: "socialIcon"
-                        }, void 0, false, {
-                            fileName: "src/Components/Footer.jsx",
-                            lineNumber: 109,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/Components/Footer.jsx",
-                        lineNumber: 104,
+                        lineNumber: 46,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Footer.jsx",
-                lineNumber: 57,
+                lineNumber: 29,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                className: "small",
                 style: {
-                    marginTop: 0,
-                    color: "white"
+                    fontSize: "11px",
+                    color: "#333",
+                    margin: 0
                 },
                 children: [
-                    "Created by ",
+                    "\xa9 ",
+                    new Date().getFullYear(),
+                    " ",
                     name
                 ]
             }, void 0, true, {
                 fileName: "src/Components/Footer.jsx",
-                lineNumber: 113,
+                lineNumber: 54,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/Footer.jsx",
-        lineNumber: 45,
+        lineNumber: 10,
         columnNumber: 5
     }, undefined);
 };
@@ -27887,16 +27781,10 @@ Footer.defaultProps = {
     name: ""
 };
 Footer.propTypes = {
-    devDotTo: (0, _propTypesDefault.default).string,
     email: (0, _propTypesDefault.default).string,
     gitHub: (0, _propTypesDefault.default).string,
-    instagram: (0, _propTypesDefault.default).string,
     linkedIn: (0, _propTypesDefault.default).string,
-    medium: (0, _propTypesDefault.default).string,
-    name: (0, _propTypesDefault.default).string.isRequired,
-    primaryColor: (0, _propTypesDefault.default).string,
-    twitter: (0, _propTypesDefault.default).string,
-    youTube: (0, _propTypesDefault.default).string
+    name: (0, _propTypesDefault.default).string.isRequired
 };
 exports.default = Footer;
 var _c;
@@ -27907,7 +27795,7 @@ $RefreshReg$(_c, "Footer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/devdotto.svg":"69cpV","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/socials/instagram.svg":"jH0VA","../images/socials/linkedin.svg":"5XSmz","../images/socials/twitter.svg":"flM6L","../images/socials/youtube.svg":"hmN7D","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/socials/linkedin.svg":"5XSmz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"7wKI2":[function(require,module,exports) {
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28654,40 +28542,58 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"69cpV":[function(require,module,exports) {
-module.exports = require("44ce4ad004cf5a22").getBundleURL("bLxZJ") + "devdotto.3bb7afaf.svg" + "?" + Date.now();
-
-},{"44ce4ad004cf5a22":"lgJ39"}],"92UhI":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"92UhI":[function(require,module,exports) {
 module.exports = require("b600a3caeecb39a2").getBundleURL("bLxZJ") + "envelope.5e5e1d9e.svg" + "?" + Date.now();
 
-},{"b600a3caeecb39a2":"lgJ39"}],"vP2m6":[function(require,module,exports) {
+},{"b600a3caeecb39a2":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"vP2m6":[function(require,module,exports) {
 module.exports = require("8bf678e0e7f004fd").getBundleURL("bLxZJ") + "github.51e0fbb2.svg" + "?" + Date.now();
 
-},{"8bf678e0e7f004fd":"lgJ39"}],"jH0VA":[function(require,module,exports) {
-module.exports = require("38945ce62c97208d").getBundleURL("bLxZJ") + "instagram.84def2ad.svg" + "?" + Date.now();
-
-},{"38945ce62c97208d":"lgJ39"}],"5XSmz":[function(require,module,exports) {
+},{"8bf678e0e7f004fd":"lgJ39"}],"5XSmz":[function(require,module,exports) {
 module.exports = require("1e02fc1f3fad5c91").getBundleURL("bLxZJ") + "linkedin.49c2dcdf.svg" + "?" + Date.now();
 
-},{"1e02fc1f3fad5c91":"lgJ39"}],"flM6L":[function(require,module,exports) {
-module.exports = require("8211fd050b351247").getBundleURL("bLxZJ") + "twitter.7541cc84.svg" + "?" + Date.now();
-
-},{"8211fd050b351247":"lgJ39"}],"hmN7D":[function(require,module,exports) {
-module.exports = require("7ab57dbc742b6209").getBundleURL("bLxZJ") + "youtube.c3557793.svg" + "?" + Date.now();
-
-},{"7ab57dbc742b6209":"lgJ39"}],"9Dt2F":[function(require,module,exports) {
+},{"1e02fc1f3fad5c91":"lgJ39"}],"9Dt2F":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2a62 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$2a62.prelude(module);
 
 try {
-/**
- * Header component
- *
- * Top navigation bar for your site. Set to remain visible as the
- * user scrolls so that they can constantly reach any part of your page.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
@@ -28698,50 +28604,44 @@ const Header = ()=>{
             position: "fixed",
             display: "flex",
             justifyContent: "center",
-            gap: "2rem",
-            background: "rgba(255,255,255,0.75)",
+            gap: "2.5rem",
+            background: "rgba(12, 12, 12, 0.85)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            borderBottom: "1px solid #242424",
             padding: "1rem",
             top: 0,
             width: "100vw",
-            zIndex: 10
+            zIndex: 10,
+            boxSizing: "border-box"
         },
         children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#home",
-                children: "Home"
-            }, void 0, false, {
+            "home",
+            "portfolio",
+            "music",
+            "about",
+            "contact"
+        ].map((id)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                href: `#${id}`,
+                style: {
+                    fontSize: "0.65rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.15em",
+                    textTransform: "uppercase",
+                    color: "#888",
+                    fontFamily: "Montserrat, sans-serif"
+                },
+                onMouseEnter: (e)=>e.target.style.color = "#e8e6e1",
+                onMouseLeave: (e)=>e.target.style.color = "#888",
+                children: id
+            }, id, false, {
                 fileName: "src/Components/Header.jsx",
-                lineNumber: 24,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#about",
-                children: "About"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 25,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#portfolio",
-                children: "Portfolio"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 26,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                href: "#contact",
-                children: "Contact"
-            }, void 0, false, {
-                fileName: "src/Components/Header.jsx",
-                lineNumber: 27,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+                lineNumber: 23,
+                columnNumber: 9
+            }, undefined))
+    }, void 0, false, {
         fileName: "src/Components/Header.jsx",
-        lineNumber: 11,
+        lineNumber: 5,
         columnNumber: 5
     }, undefined);
 };
@@ -28782,106 +28682,104 @@ const Home = ({ name , title  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         id: "home",
         className: "dark",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                className: "background",
-                src: (0, _philipBasnightCropPngDefault.default),
-                alt: imageAltText
-            }, void 0, false, {
-                fileName: "src/Components/Home.jsx",
-                lineNumber: 13,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "hero-text",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-                        children: name
-                    }, void 0, false, {
-                        fileName: "src/Components/Home.jsx",
-                        lineNumber: 15,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                        className: "hero-title",
-                        children: title
-                    }, void 0, false, {
-                        fileName: "src/Components/Home.jsx",
-                        lineNumber: 16,
-                        columnNumber: 9
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "hero-socials",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                href: "https://github.com/phizbiz",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                className: "homeSocials",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: (0, _githubSvgDefault.default),
-                                    alt: "GitHub",
-                                    className: "socialIcon"
-                                }, void 0, false, {
-                                    fileName: "src/Components/Home.jsx",
-                                    lineNumber: 19,
-                                    columnNumber: 13
-                                }, undefined)
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "hero-text",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "profile-pic",
+                    src: (0, _philipBasnightCropPngDefault.default),
+                    alt: imageAltText
+                }, void 0, false, {
+                    fileName: "src/Components/Home.jsx",
+                    lineNumber: 14,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: name
+                }, void 0, false, {
+                    fileName: "src/Components/Home.jsx",
+                    lineNumber: 15,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "hero-title",
+                    children: title
+                }, void 0, false, {
+                    fileName: "src/Components/Home.jsx",
+                    lineNumber: 16,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "hero-socials",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "https://github.com/phizbiz",
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                            className: "homeSocials",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _githubSvgDefault.default),
+                                alt: "GitHub",
+                                className: "socialIcon"
                             }, void 0, false, {
                                 fileName: "src/Components/Home.jsx",
-                                lineNumber: 18,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                href: "https://www.linkedin.com/in/philip-basnight",
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                                className: "homeSocials",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: (0, _linkedinSvgDefault.default),
-                                    alt: "LinkedIn",
-                                    className: "socialIcon"
-                                }, void 0, false, {
-                                    fileName: "src/Components/Home.jsx",
-                                    lineNumber: 22,
-                                    columnNumber: 13
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/Components/Home.jsx",
-                                lineNumber: 21,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                href: "mailto:philipbasnight@gmail.com",
-                                className: "homeSocials",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    src: (0, _envelopeSvgDefault.default),
-                                    alt: "email",
-                                    className: "socialIcon"
-                                }, void 0, false, {
-                                    fileName: "src/Components/Home.jsx",
-                                    lineNumber: 25,
-                                    columnNumber: 13
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/Components/Home.jsx",
-                                lineNumber: 24,
-                                columnNumber: 11
+                                lineNumber: 19,
+                                columnNumber: 13
                             }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/Components/Home.jsx",
-                        lineNumber: 17,
-                        columnNumber: 9
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/Components/Home.jsx",
-                lineNumber: 14,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
+                        }, void 0, false, {
+                            fileName: "src/Components/Home.jsx",
+                            lineNumber: 18,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "https://www.linkedin.com/in/philip-basnight",
+                            target: "_blank",
+                            rel: "noopener noreferrer",
+                            className: "homeSocials",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _linkedinSvgDefault.default),
+                                alt: "LinkedIn",
+                                className: "socialIcon"
+                            }, void 0, false, {
+                                fileName: "src/Components/Home.jsx",
+                                lineNumber: 22,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/Home.jsx",
+                            lineNumber: 21,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            href: "mailto:philipbasnight@gmail.com",
+                            className: "homeSocials",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                src: (0, _envelopeSvgDefault.default),
+                                alt: "email",
+                                className: "socialIcon"
+                            }, void 0, false, {
+                                fileName: "src/Components/Home.jsx",
+                                lineNumber: 25,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/Components/Home.jsx",
+                            lineNumber: 24,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/Home.jsx",
+                    lineNumber: 17,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Components/Home.jsx",
+            lineNumber: 13,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
         fileName: "src/Components/Home.jsx",
         lineNumber: 12,
         columnNumber: 5
@@ -28969,7 +28867,6 @@ const projectList = [
 ];
 const Portfolio = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
-        className: "light",
         id: "portfolio",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -29096,6 +28993,190 @@ $RefreshReg$(_c, "Portfolio");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lW6qc":[function() {},{}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequire6158")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lW6qc":[function() {},{}],"7hXXd":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0114 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0114.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const roles = [
+    {
+        org: "Broke Royals",
+        subtitle: "Band",
+        role: "Owner & Performer",
+        dates: "May 2014 – Present",
+        bullets: [
+            "Manage all aspects of a nationally touring indie rock band: music composition, recording, distribution, publishing, booking, PR, and sync licensing",
+            "Oversee catalog administration and royalty collections for 100% independently owned works"
+        ],
+        links: [
+            {
+                label: "brokeroyals.com",
+                url: "https://brokeroyals.com"
+            },
+            {
+                label: "Billboard Feature",
+                url: "https://www.billboard.com/music/music-news/broke-royals-bad-chemicals-video-8484366/"
+            }
+        ]
+    },
+    {
+        org: "DC Rock History Podcast",
+        subtitle: null,
+        role: "Creator & Host",
+        dates: "September 2024 – Present",
+        bullets: [
+            "Host and produce a documentary-style interview podcast covering the history of Washington, DC's rock music scene",
+            "Interviewed influential guests including Thurston Moore (Sonic Youth), Bartees Strange, and Bob Boilen (NPR's Tiny Desk Concerts, All Songs Considered), fostering industry relationships across labels, artists, and media"
+        ],
+        links: [
+            {
+                label: "dcrockpod.podbean.com",
+                url: "https://dcrockpod.podbean.com/"
+            },
+            {
+                label: "Washingtonian Feature",
+                url: "https://washingtonian.com/2025/04/02/the-dc-rock-history-podcast-explores-key-local-albums/"
+            }
+        ]
+    }
+];
+const MusicProfile = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+        id: "music",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                children: "Music Industry Profile"
+            }, void 0, false, {
+                fileName: "src/Components/MusicProfile.jsx",
+                lineNumber: 37,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "music-profile-container",
+                children: roles.map((item)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "music-profile-card",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "music-profile-header",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                                                className: "music-org",
+                                                children: [
+                                                    item.org,
+                                                    item.subtitle && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "music-subtitle",
+                                                        children: [
+                                                            " (",
+                                                            item.subtitle,
+                                                            ")"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/Components/MusicProfile.jsx",
+                                                        lineNumber: 45,
+                                                        columnNumber: 37
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/Components/MusicProfile.jsx",
+                                                lineNumber: 43,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                                                className: "music-role",
+                                                children: item.role
+                                            }, void 0, false, {
+                                                fileName: "src/Components/MusicProfile.jsx",
+                                                lineNumber: 47,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/Components/MusicProfile.jsx",
+                                        lineNumber: 42,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                        className: "music-dates",
+                                        children: item.dates
+                                    }, void 0, false, {
+                                        fileName: "src/Components/MusicProfile.jsx",
+                                        lineNumber: 49,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/Components/MusicProfile.jsx",
+                                lineNumber: 41,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                                className: "music-bullets",
+                                children: item.bullets.map((b)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                        children: b
+                                    }, b, false, {
+                                        fileName: "src/Components/MusicProfile.jsx",
+                                        lineNumber: 53,
+                                        columnNumber: 17
+                                    }, undefined))
+                            }, void 0, false, {
+                                fileName: "src/Components/MusicProfile.jsx",
+                                lineNumber: 51,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "project-links",
+                                children: item.links.map((link)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                                        href: link.url,
+                                        target: "_blank",
+                                        rel: "noopener noreferrer",
+                                        children: link.label
+                                    }, link.url, false, {
+                                        fileName: "src/Components/MusicProfile.jsx",
+                                        lineNumber: 58,
+                                        columnNumber: 17
+                                    }, undefined))
+                            }, void 0, false, {
+                                fileName: "src/Components/MusicProfile.jsx",
+                                lineNumber: 56,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, item.org, true, {
+                        fileName: "src/Components/MusicProfile.jsx",
+                        lineNumber: 40,
+                        columnNumber: 11
+                    }, undefined))
+            }, void 0, false, {
+                fileName: "src/Components/MusicProfile.jsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/MusicProfile.jsx",
+        lineNumber: 36,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MusicProfile;
+exports.default = MusicProfile;
+var _c;
+$RefreshReg$(_c, "MusicProfile");
+
+  $parcel$ReactRefreshHelpers$0114.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["igKGj","1xC6H","8lqZg"], "8lqZg", "parcelRequire6158")
 
 //# sourceMappingURL=index.975ef6c8.js.map
