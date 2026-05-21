@@ -28735,8 +28735,8 @@ var _envelopeSvg = require("../images/socials/envelope.svg");
 var _envelopeSvgDefault = parcelHelpers.interopDefault(_envelopeSvg);
 var _githubSvg = require("../images/socials/github.svg");
 var _githubSvgDefault = parcelHelpers.interopDefault(_githubSvg);
-var _philipBasnightCropPng = require("../images/PhilipBasnightCrop.png");
-var _philipBasnightCropPngDefault = parcelHelpers.interopDefault(_philipBasnightCropPng);
+var _philipBasnightCrop600Png = require("../images/PhilipBasnightCrop600.png");
+var _philipBasnightCrop600PngDefault = parcelHelpers.interopDefault(_philipBasnightCrop600Png);
 const imageAltText = "Philip Basnight";
 const Home = ({ name , title  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -28747,7 +28747,7 @@ const Home = ({ name , title  })=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     className: "profile-pic",
-                    src: (0, _philipBasnightCropPngDefault.default),
+                    src: (0, _philipBasnightCrop600PngDefault.default),
                     alt: imageAltText
                 }, void 0, false, {
                     fileName: "src/Components/Home.jsx",
@@ -28863,10 +28863,10 @@ $RefreshReg$(_c, "Home");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","../images/PhilipBasnightCrop.png":"3gMho","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3gMho":[function(require,module,exports) {
-module.exports = require("6cfe0ba79188ebb2").getBundleURL("bLxZJ") + "PhilipBasnightCrop.a78d8383.png" + "?" + Date.now();
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","../images/socials/linkedin.svg":"5XSmz","../images/socials/envelope.svg":"92UhI","../images/socials/github.svg":"vP2m6","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../images/PhilipBasnightCrop600.png":"fhIcC"}],"fhIcC":[function(require,module,exports) {
+module.exports = require("d215639231e95d5e").getBundleURL("bLxZJ") + "PhilipBasnightCrop600.a91269a1.png" + "?" + Date.now();
 
-},{"6cfe0ba79188ebb2":"lgJ39"}],"lCaEt":[function(require,module,exports) {
+},{"d215639231e95d5e":"lgJ39"}],"lCaEt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ed0d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
