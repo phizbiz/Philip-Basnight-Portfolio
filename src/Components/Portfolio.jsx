@@ -1,6 +1,7 @@
 import React from "react";
 
 const projectList = [
+  /*
   {
     title: "Music Rights Data Pipeline",
     category: "Data Analysis",
@@ -17,6 +18,7 @@ const projectList = [
     tools: "Oracle SQL · CTEs · Correlated Subqueries · Window Functions · Multi-schema Joins · Currency Conversion",
     git: "https://github.com/phizbiz/music-royalty-qa-pipeline",
   },
+  */
   {
     title: "U.S. Bank Financial Health Analysis",
     category: "Data Analysis",
@@ -52,11 +54,27 @@ const projectList = [
     url: "https://new-chord-generator.vercel.app/",
     git: "https://github.com/phizbiz/new-chord-generator",
   },
+  {
+    title: "Record Matching Demo",
+    category: "Automation",
+    description:
+      "Automated record-matching system demo: a weighted-similarity engine scores new submissions against a master database across 7 columns (exact, fuzzy, date-aware, and digit-only scorers), a Flask site simulates an internal matching tool, and a Selenium bot reads submissions from Excel, finds the best match, and drives the site end-to-end.",
+    tools: "Python · Flask · Selenium · Fuzzy String Matching · Excel Automation",
+    git: "https://github.com/phizbiz/matching-demo",
+  },
+  {
+    title: "IMDB Search Agent",
+    category: "Automation",
+    description:
+      "Interactive CLI agent that searches IMDB for a name, title, or theme, scrapes structured details (rating, cast, genres, runtime) from each title's JSON-LD data, streams live progress to the terminal, and saves a formatted results report to a text file.",
+    tools: "Python · Requests · BeautifulSoup · Rich · Web Scraping",
+    git: "https://github.com/phizbiz/imdb-agent",
+  },
 ];
 
 const Portfolio = () => {
   return (
-    <section className="light" id="portfolio">
+    <section id="portfolio">
       <h2>Portfolio</h2>
       <div className="container">
         {projectList.map((project) => (
